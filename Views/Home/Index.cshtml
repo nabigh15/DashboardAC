@@ -1,0 +1,935 @@
+﻿@{
+    ViewData["Title"] = "Production Management System";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/dashboard.css" />
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo">Panasonic</div>
+            <div class="title">Production Management System</div>
+            <div id="current-date" class="date"></div>
+        </header>
+        <main class="main-content">
+            <div class="legend-container main-legend">
+                <div class="legend-item">
+                    <span class="legend-color-box" style="background-color: #d90429;"></span>
+                    <span class="legend-label">&lt; 80%</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color-box" style="background-color: yellow;"></span>
+                    <span class="legend-label">&lt; 85%</span>
+                </div>
+            </div>
+            <div class="left-column">
+                <img src="~/assets/denah_pabrik.png" alt="Factory Floor Plan" />
+
+                <svg id="line-overlay">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                        refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="rgba(255, 255, 255, 0.6)" />
+                        </marker>
+                    </defs>
+                </svg>
+
+                <div class="info-balloon" id="outdoor-unit-marker">
+                    <span class="balloon-title">Outdoor Unit Assembly</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="indoor-unit-marker">
+                    <span class="balloon-title">Indoor Unit Assembly</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon tacked-from-top" id="machine-300t-new">
+                    <span class="balloon-title">300TN</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-300t">
+                    <span class="balloon-title">300T</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-200t">
+                    <span class="balloon-title">200T</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-400t">
+                    <span class="balloon-title">400T</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-110t-amada">
+                    <span class="balloon-title">110T Amada</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-110t-komatsu">
+                    <span class="balloon-title">110T Komatsu</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-sf-250">
+                    <span class="balloon-title">SF 250</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-fix-80">
+                    <span class="balloon-title">FIX 80</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-fix-12">
+                    <span class="balloon-title">FIX 12</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-fix-36">
+                    <span class="balloon-title">FIX 36</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-kyoshin-ori">
+                    <span class="balloon-title">Kyoshin</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-kyoshin">
+                    <span class="balloon-title">6.35</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-li-chin">
+                    <span class="balloon-title">Li-chin</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-14-row">
+                    <span class="balloon-title">14 Row</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="machine-7-row">
+                    <span class="balloon-title">7 Row</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="oven">
+                    <span class="balloon-title">Oven</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="evap">
+                    <span class="balloon-title">Evap</span>
+                    <div class="balloon-details"></div>
+                </div>
+                <div class="info-balloon" id="cond">
+                    <span class="balloon-title">Cond</span>
+                    <div class="balloon-details"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/ProductionReport/index" class="card-link" target="production_report_tab" rel="noopener noreferrer">
+                <div id="assembly-achievement-card" class="widget-card" style="flex: 1;">
+                    <div class="widget-title"><span>Assembly Achievement</span></div>
+                    <div class="achievement-container">
+                        <div class="achievement-chart-wrapper">
+                            <div class="line-title">CU</div>
+                            <div class="chart-container">
+                                <canvas id="chartCU"></canvas>
+                                <div class="chart-text-center">
+                                    <div class="spinner-arc"></div>
+                                    <div class="chart-label">Act/Plan</div>
+                                    <div id="chart-values-cu" class="chart-value">0/0</div>
+                                </div>
+                                <div class="chart-text-start">0</div>
+                                <div id="chart-end-text-cu" class="chart-text-end">0</div>
+                            </div>
+                        </div>
+                        <div class="achievement-chart-wrapper">
+                            <div class="line-title">CS</div>
+                            <div class="chart-container">
+                                <canvas id="chartCS"></canvas>
+                                <div class="chart-text-center">
+                                    <div class="spinner-arc"></div>
+                                    <div class="chart-label">Act/Plan</div>
+                                    <div id="chart-values-cs" class="chart-value">0/0</div>
+                                </div>
+                                <div class="chart-text-start">0</div>
+                                <div id="chart-end-text-cs" class="chart-text-end">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
+                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
+                    <div class="widget-title"><span>Pass Through Ratio</span><span class="sub-text">(Quality Defect)</span></div>
+                    <div class="quality-defect-container">
+                        <div class="defect-bar-wrapper">
+                            <span class="line-title-small">CU</span>
+                            <div class="bar-container">
+                                <div id="quality-bar-cu" class="bar-fill"></div>
+                                <span class="quality-text">
+                                    <span id="quality-percent-cu">0.0</span>%
+                                    <span class="defect-count-label">(<span id="defect-count-cu">0</span> defects)</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="defect-bar-wrapper">
+                            <span class="line-title-small">CS</span>
+                            <div class="bar-container">
+                                <div id="quality-bar-cs" class="bar-fill"></div>
+                                <span class="quality-text">
+                                    <span id="quality-percent-cs">0.0</span>%
+                                    <span class="defect-count-label">(<span id="defect-count-cs">0</span> defects)</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
+                <div id="assembly-loss-time-card" class="widget-card" style="flex: 3;">
+                    <div class="widget-title">
+                        <div class="legend-container">
+                            <div class="legend-item">
+                                <span class="legend-color-box" style="background-color: #d90429;"></span>
+                                <span class="legend-label">Loss Time</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color-box" style="background-color: #4F86F3;"></span>
+                                <span class="legend-label">Load Time</span>
+                            </div>
+                        </div>
+                        <span>Assembly Loss Time</span>
+                    </div>
+                    <div class="loss-time-container">
+                        <div class="loss-line-wrapper">
+                            <b class="loss-line-title">CU</b>
+                            <div class="loss-summary">
+                                <div><span>Working Time</span><span id="cu-working-time">0</span></div>
+                                <div><span>Loss Time</span><span id="cu-loss-time">0</span></div>
+                                <div><span>Load Time</span><span id="cu-load-time">0</span></div>
+                            </div>
+                            <div class="timeline-container">
+                                <div class="timeline-track-wrapper">
+                                    <div id="timeline-track-cu" class="timeline-track">
+                                        <div id="timeline-progress-cu" class="timeline-progress"></div>
+                                    </div>
+                                    <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                                </div>
+                                <div class="timeline-hours">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="loss-line-wrapper">
+                            <b class="loss-line-title">CS</b>
+                            <div class="loss-summary">
+                                <div><span>Working Time</span><span id="cs-working-time">0</span></div>
+                                <div><span>Loss Time</span><span id="cs-loss-time">0</span></div>
+                                <div><span>Load Time</span><span id="cs-load-time">0</span></div>
+                            </div>
+                            <div class="timeline-container">
+                                <div class="timeline-track-wrapper">
+                                    <div id="timeline-track-cs" class="timeline-track">
+                                        <div id="timeline-progress-cs" class="timeline-progress"></div>
+                                    </div>
+                                    <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                                </div>
+                                <div class="timeline-hours">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
+                <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
+                    <div class="widget-title">Machine Efficiency</div>
+                    <div class="machine-efficiency-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Machine Name</th>
+                                    <th>OEE</th>
+                                    <th>Operating Ratio</th>
+                                    <th>Ability</th>
+                                    <th>Quality</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </a>
+                <div class="widget-card" style="flex: 2;">
+                    <div class="energy-container">
+                        <div class="energy-chart-wrapper">
+                            <div class="energy-chart-title">Total Energy</div>
+                            <div class="energy-chart-canvas-container">
+                                <canvas id="totalEnergyChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="energy-separator"></div>
+
+                        <div class="energy-slider-wrapper">
+                            <div id="energy-slider-title" class="energy-chart-title">CU Energy</div>
+                            <div class="energy-slider-viewport">
+                                <div id="energy-slider-container" class="energy-slider-container">
+                                    <div class="energy-chart-wrapper">
+                                        <div class="energy-chart-canvas-container">
+                                            <canvas id="cuEnergyChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="energy-chart-wrapper">
+                                        <div class="energy-chart-canvas-container">
+                                            <canvas id="csEnergyChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-legend">
+                        <div class="legend-item">
+                            <span class="legend-color-box" style="background-color: #d90429;"></span>
+                            <span class="legend-label">Yesterday Consump</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color-box" style="background-color: #4F86F3;"></span>
+                            <span class="legend-label">Today Consump</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="~/lib/chartjs/chart.umd.min.js"></script>
+    <script type="text/javascript">
+        let chartCU, chartCS, lossChartCU, lossChartCS;
+
+        const alertDetails = new Map();
+
+        function scrollToTarget(elementId) {
+            const targetElement = document.getElementById(elementId);
+            const scrollContainer = document.querySelector('.machine-efficiency-table');
+
+            if (targetElement && scrollContainer) {
+                const targetPosition = targetElement.offsetTop;
+                const containerHeight = scrollContainer.clientHeight;
+                const targetHeight = targetElement.clientHeight;
+
+                const scrollToPosition = targetPosition - (containerHeight / 2) + (targetHeight / 2);
+
+                scrollContainer.scrollTo({
+                    top: scrollToPosition,
+                    behavior: 'smooth'
+                });
+
+                targetElement.classList.add('highlight');
+                setTimeout(() => targetElement.classList.remove('highlight'), 2500);
+            }
+        }
+
+        function highlightTarget(elementId) {
+            const targetElement = document.getElementById(elementId);
+            if (targetElement) {
+                targetElement.classList.add('highlight');
+                setTimeout(() => targetElement.classList.remove('highlight'), 2500);
+            }
+        }
+
+        function drawConnectorLines() {
+            const container = document.querySelector('.left-column');
+            const svg = document.getElementById('line-overlay');
+            svg.innerHTML = svg.querySelector('defs').outerHTML;
+
+            const machineCoordinates = {
+                'outdoor-unit-marker': { x: 23, y: 37 },
+                'indoor-unit-marker': { x: 11, y: 53 },
+                'machine-300t-new': { x: 87, y: 73 },
+                'machine-300t': { x: 86, y: 52 },
+                'machine-200t': { x: 84, y: 44 },
+                'machine-400t': { x: 88, y: 64 },
+                'machine-110t-amada': { x: 80, y: 32 },
+                'machine-110t-komatsu': { x: 88, y: 32 },
+                'machine-sf-250': { x: 68, y: 20 },
+                'machine-fix-80': { x: 62, y: 20 },
+                'machine-fix-12': { x: 57, y: 20 },
+                'machine-fix-36': { x: 50, y: 20 },
+                'machine-kyoshin-ori': { x: 51, y: 36 },
+                'machine-kyoshin': { x: 63, y: 36 },
+                'machine-li-chin': { x: 57, y: 36 },
+                'machine-14-row': { x: 83, y: 19 },
+                'machine-7-row': { x: 86, y: 22 },
+                'oven': { x: 69, y: 47 },
+                'evap': { x: 63, y: 65 },
+                'cond': { x: 73, y: 65 }
+            };
+
+            const containerWidth = container.offsetWidth;
+            const containerHeight = container.offsetHeight;
+
+            for (const balloonId in machineCoordinates) {
+                const balloon = document.getElementById(balloonId);
+                if (balloon) {
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+
+                    const startX = balloon.offsetLeft + balloon.offsetWidth / 2;
+                    const startY = balloon.classList.contains('tacked-from-top') 
+                        ? balloon.offsetTop 
+                        : balloon.offsetTop + balloon.offsetHeight;
+
+                    const endX = (machineCoordinates[balloonId].x / 100) * containerWidth;
+                    const endY = (machineCoordinates[balloonId].y / 100) * containerHeight;
+
+                    line.setAttribute('x1', startX);
+                    line.setAttribute('y1', startY);
+                    line.setAttribute('x2', endX);
+                    line.setAttribute('y2', endY);
+                    line.setAttribute('class', 'connector-line');
+
+                    svg.appendChild(line);
+                }
+            }
+        }
+
+        function createEnergyChart(canvasId, yesterdayData, todayData, yAxisConfig) {
+            const labels = ['7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Yesterday Consump',
+                    data: yesterdayData,
+                    borderColor: '#d90429',
+                    backgroundColor: '#d90429',
+                    tension: 0.1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }, {
+                    label: 'Today Consump',
+                    data: todayData,
+                    borderColor: '#4F86F3',
+                    backgroundColor: '#4F86F3',
+                    tension: 0.1,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                    pointStyle: 'rect'
+                }]
+            };
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#fff'
+                        }
+                    },
+                    y: {
+                        ...yAxisConfig,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            borderDash: [2, 4],
+                        },
+                        ticks: {
+                            color: '#fff'
+                        },
+                        title: {
+                            display: true,
+                            text: 'KwH',
+                            color: '#fff',
+                            align: 'start',
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                }
+            };
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: options
+            });
+        }
+
+        function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
+            const actualValue = (dailyPlan > 0 && actual <= dailyPlan) ? actual : (actual > dailyPlan ? dailyPlan : 0);
+            const remainderValue = (dailyPlan > 0) ? dailyPlan - actualValue : 1;
+            const data = {
+                datasets: [{
+                    data: [actualValue, remainderValue < 0 ? 0 : remainderValue],
+                    backgroundColor: ['#4F86F3', '#C7CBFF'],
+                    borderColor: '#14223D', borderWidth: 1, circumference: 180, rotation: 270
+                }]
+            };
+            const options = {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                layout: { padding: { top: 5, bottom: 5 } },
+                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+            };
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            if (chartInstance) {
+                chartInstance.data.datasets[0].data = [actualValue, remainderValue < 0 ? 0 : remainderValue];
+                chartInstance.update();
+                return chartInstance;
+            } else {
+                return new Chart(ctx, { type: 'doughnut', data: data, options: options });
+            }
+        }
+
+        function setDate() {
+            const dateElement = document.getElementById('current-date');
+            const now = new Date();
+            const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const dayOfWeek = weekdays[now.getDay()];
+            const dayOfMonth = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${month} ${year} ${hours}:${minutes}`;
+            dateElement.textContent = formattedDate;
+        }
+
+        function drawLossTimeMarkers(trackId, hourlyEvents, totalMinutesInTimeline) {
+            const trackElement = document.getElementById(trackId);
+            if (!trackElement || !hourlyEvents) return;
+            trackElement.querySelectorAll('.loss-marker').forEach(marker => marker.remove());
+            if (totalMinutesInTimeline <= 0) return;
+            for (const hour in hourlyEvents) {
+                if (hourlyEvents.hasOwnProperty(hour)) {
+                    const eventsInHour = hourlyEvents[hour];
+                    eventsInHour.forEach(event => {
+                        const startOffsetMinutes = ((parseInt(hour) - 7) * 60) + event.startMinute;
+                        const leftPercent = (startOffsetMinutes / totalMinutesInTimeline) * 100;
+                        const widthPercent = (event.durationMinutes / totalMinutesInTimeline) * 100;
+                        if (leftPercent + widthPercent <= 100) {
+                            const marker = document.createElement('div');
+                            marker.className = 'loss-marker';
+                            marker.style.left = `${leftPercent}%`;
+                            marker.style.width = `${widthPercent}%`;
+                            trackElement.appendChild(marker);
+                        }
+                    });
+                }
+            }
+        }
+
+        function drawBreakTimeMarkers(trackId, breakTimes, totalMinutesInTimeline) {
+            const trackElement = document.getElementById(trackId);
+            if (!trackElement || !breakTimes) return;
+            trackElement.querySelectorAll('.break-marker').forEach(marker => marker.remove());
+            if (totalMinutesInTimeline <= 0) return;
+            const timelineStartHour = 7;
+            breakTimes.forEach(breakTime => {
+                const startParts = breakTime.start.split(':').map(Number);
+                const endParts = breakTime.end.split(':').map(Number);
+                const startTotalMinutes = startParts[0] * 60 + startParts[1];
+                const endTotalMinutes = endParts[0] * 60 + endParts[1];
+                const startOffsetMinutes = startTotalMinutes - (timelineStartHour * 60);
+                const durationMinutes = endTotalMinutes - startTotalMinutes;
+                if (durationMinutes <= 0) return;
+                const leftPercent = (startOffsetMinutes / totalMinutesInTimeline) * 100;
+                const widthPercent = (durationMinutes / totalMinutesInTimeline) * 100;
+                if (leftPercent + widthPercent <= 100) {
+                    const marker = document.createElement('div');
+                    marker.className = 'break-marker';
+                    marker.style.left = `${leftPercent}%`;
+                    marker.style.width = `${widthPercent}%`;
+                    trackElement.appendChild(marker);
+                }
+            });
+        }
+
+        function updateAssemblyTimeline(lineId, lossData) {
+            const trackElement = document.getElementById(`timeline-track-${lineId}`);
+            const progressElement = document.getElementById(`timeline-progress-${lineId}`);
+            const minutesContainer = document.getElementById(`timeline-minutes-${lineId}`);
+            const hoursElement = document.querySelector(`#timeline-track-${lineId}`).closest('.timeline-container').querySelector('.timeline-hours');
+            if (!trackElement || !hoursElement || !progressElement || !minutesContainer) return;
+            const now = new Date();
+            const startHour = 7;
+            const endOfDayHour = 16;
+            let displayEndHour = now.getHours() + 1;
+            if (now.getMinutes() > 0) displayEndHour = Math.max(displayEndHour, now.getHours() + 1);
+            displayEndHour = Math.max(startHour + 1, displayEndHour);
+            displayEndHour = Math.min(displayEndHour, endOfDayHour);
+            const totalMinutesInTimeline = (displayEndHour - startHour) * 60;
+            hoursElement.innerHTML = '';
+            for (let h = startHour; h < displayEndHour; h++) {
+                const hourSpan = document.createElement('span');
+                hourSpan.textContent = `${String(h).padStart(2, '0')}.00`;
+                hoursElement.appendChild(hourSpan);
+            }
+            minutesContainer.innerHTML = '';
+            if (totalMinutesInTimeline > 0) {
+                let tickInterval;
+                if (totalMinutesInTimeline <= 90) { tickInterval = 5; }
+                else if (totalMinutesInTimeline <= 180) { tickInterval = 10; }
+                else if (totalMinutesInTimeline <= 300) { tickInterval = 15; }
+                else { tickInterval = 30; }
+                const totalTicks = Math.floor(totalMinutesInTimeline / tickInterval);
+                for (let i = 1; i <= totalTicks; i++) {
+                    const currentMinuteInTimeline = i * tickInterval;
+                    if (currentMinuteInTimeline >= totalMinutesInTimeline) continue;
+                    const minuteOfHour = currentMinuteInTimeline % 60;
+                    if (minuteOfHour === 0) continue;
+                    const hourOfTimeline = startHour + Math.floor(currentMinuteInTimeline / 60);
+                    const positionPercent = (currentMinuteInTimeline / totalMinutesInTimeline) * 100;
+                    const tick = document.createElement('div');
+                    tick.className = 'minute-tick';
+                    tick.textContent = `${String(hourOfTimeline).padStart(2, '0')}.${String(minuteOfHour).padStart(2, '0')}`;
+                    if (minuteOfHour === 30) { tick.classList.add('half-hour'); }
+                    else if (minuteOfHour === 15 || minuteOfHour === 45) { tick.classList.add('major-tick'); }
+                    tick.style.left = `${positionPercent}%`;
+                    minutesContainer.appendChild(tick);
+                }
+            }
+            drawBreakTimeMarkers(`timeline-track-${lineId}`, lossData.breakTimes, totalMinutesInTimeline);
+            drawLossTimeMarkers(`timeline-track-${lineId}`, lossData.hourlyEvents, totalMinutesInTimeline);
+            const timelineStart = new Date(now);
+            timelineStart.setHours(startHour, 0, 0, 0);
+            let elapsedMillis = now - timelineStart;
+            const totalDurationMillis = totalMinutesInTimeline * 60 * 1000;
+            elapsedMillis = Math.max(0, Math.min(elapsedMillis, totalDurationMillis));
+            const progressPercent = (totalDurationMillis > 0) ? (elapsedMillis / totalDurationMillis) * 100 : 0;
+            progressElement.style.width = `${progressPercent}%`;
+        }
+
+        async function updateMachineEfficiency() {
+            const apiUrl = '/Home/GetMachineEfficiencyData';
+            const machineMapping = {
+                'thtn': '300TN', 'twt': '200T', 'thto': '400T', 'ota': '110T Amada',
+                'otb': '110T Komatsu', 'sftf': 'SF 250', 'fez': 'FIX 80', 'fts': 'FIX 36',
+                'eky': 'Kyoshin 6.35', 'elc': 'Li-chin', 'hpn': '14 Row', 'hpo': '7 Row'
+            };
+            const balloonMapping = {
+                'thtn': 'machine-300t-new', 'twt': 'machine-200t', 'thto': 'machine-400t', 'ota': 'machine-110t-amada',
+                'otb': 'machine-110t-komatsu', 'sftf': 'machine-sf-250', 'fez': 'machine-fix-80', 'fts': 'machine-fix-36',
+                'eky': 'machine-kyoshin', 'elc': 'machine-li-chin', 'hpn': 'machine-14-row', 'hpo': 'machine-7-row'
+            };
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const apiData = await response.json();
+                const dataMap = new Map(apiData.map(item => [item.tagName, item.value]));
+                const tableBody = document.querySelector('.machine-efficiency-table tbody');
+                tableBody.innerHTML = '';
+
+                let index = 1;
+                for (const [prefix, machineName] of Object.entries(machineMapping)) {
+                    const oeeValue = dataMap.get(`${prefix}Oee`) || 0;
+                    const operatingRatioValue = dataMap.get(`${prefix}Efficiency`) || 0;
+                    const abilityValue = dataMap.get(`${prefix}Quantity`) || 0;
+                    const qualityValue = dataMap.get(`${prefix}Quality`) || 0;
+
+                    const oee = (oeeValue / 10).toFixed(0);
+                    const operatingRatioPercent = operatingRatioValue * 0.1;
+                    const abilityPercent = abilityValue * 0.1;
+                    const qualityPercent = qualityValue * 0.1;
+
+                    const balloonId = balloonMapping[prefix];
+                    const balloonElement = document.getElementById(balloonId);
+                    const isAlert = oee < 80 || operatingRatioPercent < 80 || abilityPercent < 80 || qualityPercent < 80;
+
+                    if (balloonElement) {
+                        const detailsContainer = balloonElement.querySelector('.balloon-details');
+                        if (isAlert) {
+                            balloonElement.classList.add('alert-balloon');
+                            let reasons = [];
+                            if (oee < 80) reasons.push(`OEE: <b>${oee}%</b>`);
+                            if (operatingRatioPercent < 80) reasons.push(`OR: <b>${operatingRatioPercent.toFixed(0)}%</b>`);
+                            if (abilityPercent < 80) reasons.push(`Ability: <b>${abilityPercent.toFixed(0)}%</b>`);
+                            if (qualityPercent < 80) reasons.push(`Quality: <b>${qualityPercent.toFixed(0)}%</b>`);
+
+                            if (detailsContainer) {
+                                detailsContainer.innerHTML = `${reasons.join('<br>')}`;
+                            }                                 /*</span><strong>Reason:</strong><br>*/
+
+                            alertDetails.set(balloonId, {
+                                type: 'machine',
+                                targetId: `row-${prefix}`
+                            });
+                        } else {
+                            balloonElement.classList.remove('alert-balloon');
+                            balloonElement.classList.remove('expanded');
+                            if (detailsContainer) detailsContainer.innerHTML = '';
+                            alertDetails.delete(balloonId);
+                        }
+                    }
+
+                    const row = document.createElement('tr');
+                    row.id = `row-${prefix}`;
+                    row.innerHTML = `<td>${index}</td><td>${machineName}</td><td>${oee}%</td><td><div class="bar"><div class="fill" style="width: ${operatingRatioPercent}%;"></div><span class="quality-text">${operatingRatioPercent.toFixed(0)}%</span></div></td><td><div class="bar"><div class="fill" style="width: ${abilityPercent}%;"></div><span class="quality-text">${abilityPercent.toFixed(0)}%</span></div></td><td><div class="bar"><div class="fill" style="width: ${qualityPercent}%;"></div><span class="quality-text">${qualityPercent.toFixed(0)}%</span></div></td>`;
+                    tableBody.appendChild(row);
+                    index++;
+                }
+            } catch (error) {
+                console.error("Could not fetch machine efficiency data:", error);
+                const tableBody = document.querySelector('.machine-efficiency-table tbody');
+                tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Loading machine data.</td></tr>';
+            }
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/Home/GetDashboardData');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+
+                // const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
+                // chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU);
+                // document.getElementById('chart-values-cu').textContent = `${data.lineCU.totalActual}/${displayPlanCU}`;
+                // document.getElementById('chart-end-text-cu').textContent = data.lineCU.dailyPlan;
+
+                // const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
+                // chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, displayPlanCS);
+                // document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
+                // document.getElementById('chart-end-text-cs').textContent = data.lineCS.dailyPlan;
+
+                const dailyPlanCU = data.lineCU.dailyPlan;
+                const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
+                chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, dailyPlanCU);
+                document.getElementById('chart-values-cu').textContent = `${data.lineCU.totalActual}/${displayPlanCU}`; 
+                document.getElementById('chart-end-text-cu').textContent = data.lineCU.dailyPlan;
+
+                const dailyPlanCS = data.lineCS.dailyPlan;
+                const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
+                chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, dailyPlanCS);
+                document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
+                document.getElementById('chart-end-text-cs').textContent = data.lineCS.dailyPlan;
+
+                document.getElementById('quality-bar-cu').style.width = data.lineCU.qualityRate + '%';
+                document.getElementById('quality-percent-cu').textContent = data.lineCU.qualityRate.toFixed(0);
+                document.getElementById('defect-count-cu').textContent = data.lineCU.totalDefects;
+                document.getElementById('quality-bar-cs').style.width = data.lineCS.qualityRate + '%';
+                document.getElementById('quality-percent-cs').textContent = data.lineCS.qualityRate.toFixed(0);
+                document.getElementById('defect-count-cs').textContent = data.lineCS.totalDefects;
+
+                document.getElementById('cu-working-time').textContent = data.lossTimeCU.workingTime;
+                document.getElementById('cu-loss-time').textContent = data.lossTimeCU.lossTime;
+                document.getElementById('cu-load-time').textContent = data.lossTimeCU.loadTime;
+                updateAssemblyTimeline('cu', data.lossTimeCU);
+
+                document.getElementById('cs-working-time').textContent = data.lossTimeCS.workingTime;
+                document.getElementById('cs-loss-time').textContent = data.lossTimeCS.lossTime;
+                document.getElementById('cs-load-time').textContent = data.lossTimeCS.loadTime;
+                updateAssemblyTimeline('cs', data.lossTimeCS);
+
+                const now = new Date();
+                const indoorMarker = document.getElementById('indoor-unit-marker');
+                const outdoorMarker = document.getElementById('outdoor-unit-marker');
+                const middayAlertTime = new Date(now);
+                middayAlertTime.setHours(12, 0, 0, 0);
+                const finalAlertTime = new Date(now);
+                finalAlertTime.setHours(15, 40, 0, 0);
+
+                const csDetailsContainer = indoorMarker.querySelector('.balloon-details');
+                let csAlertReasons = [];
+                let csTargetIds = [];
+
+                const csMiddayCondition = (now >= middayAlertTime && data.lineCS.totalActual < (data.lineCS.totalPlan / 2));
+                const csFinalCondition = (now >= finalAlertTime && (data.lineCS.dailyPlan - data.lineCS.totalActual) > 100);
+                const csWorkingTime = parseFloat(data.lossTimeCS.workingTime) || 0;
+                const csLoadTime = parseFloat(data.lossTimeCS.loadTime) || 0;
+                const csLoadTimeRatio = csWorkingTime > 0 ? (csLoadTime / csWorkingTime) * 100 : 100;
+                const csLoadTimeCondition = csLoadTimeRatio < 80;
+
+                if (csMiddayCondition || csFinalCondition) {
+                    csAlertReasons.push(csMiddayCondition ? 'Midday production achievement was below target.' : 'The end-of-day production deficit exceeded 100 units.');
+                    csTargetIds.push('assembly-achievement-card');
+                }
+                if (csLoadTimeCondition) {
+                    csAlertReasons.push(`Working time efficiency below 80% (<b>${csLoadTimeRatio.toFixed(0)}%</b>).`);
+                    csTargetIds.push('assembly-loss-time-card');
+                }
+
+                if (csAlertReasons.length > 0) {
+                    indoorMarker.classList.add('alert-balloon');
+                    if (csDetailsContainer) csDetailsContainer.innerHTML = `</span><strong>Penyebab:</strong><br>${csAlertReasons.join('<br>')}`;
+                    alertDetails.set('indoor-unit-marker', {
+                        type: 'assembly',
+                        targets: [...new Set(csTargetIds)]
+                    });
+                } else {
+                    indoorMarker.classList.remove('alert-balloon');
+                    indoorMarker.classList.remove('expanded');
+                    if (csDetailsContainer) csDetailsContainer.innerHTML = '';
+                    alertDetails.delete('indoor-unit-marker');
+                }
+
+                const cuDetailsContainer = outdoorMarker.querySelector('.balloon-details');
+                let cuAlertReasons = [];
+                let cuTargetIds = [];
+
+                const cuMiddayCondition = (now >= middayAlertTime && data.lineCU.totalActual < (data.lineCU.totalPlan / 2));
+                const cuFinalCondition = (now >= finalAlertTime && (data.lineCU.dailyPlan - data.lineCU.totalActual) > 100);
+                const cuWorkingTime = parseFloat(data.lossTimeCU.workingTime) || 0;
+                const cuLoadTime = parseFloat(data.lossTimeCU.loadTime) || 0;
+                const cuLoadTimeRatio = cuWorkingTime > 0 ? (cuLoadTime / cuWorkingTime) * 100 : 100;
+                const cuLoadTimeCondition = cuLoadTimeRatio < 80;
+
+                if (cuMiddayCondition || cuFinalCondition) {
+                    cuAlertReasons.push(cuMiddayCondition ? 'Midday production achievement was below target.' : 'The end-of-day production deficit exceeded 100 units.');
+                    cuTargetIds.push('assembly-achievement-card');
+                }
+                if (cuLoadTimeCondition) {
+                    cuAlertReasons.push(`Working time efficiency below 80% (<b>${cuLoadTimeRatio.toFixed(0)}%</b>).`);
+                    cuTargetIds.push('assembly-loss-time-card');
+                }
+
+                if (cuAlertReasons.length > 0) {
+                    outdoorMarker.classList.add('alert-balloon');
+                    if (cuDetailsContainer) cuDetailsContainer.innerHTML = `</span><strong>Reason:</strong><br>${cuAlertReasons.join('<br>')}`;
+                    alertDetails.set('outdoor-unit-marker', {
+                        type: 'assembly',
+                        targets: [...new Set(cuTargetIds)]
+                    });
+                } else {
+                    outdoorMarker.classList.remove('alert-balloon');
+                    outdoorMarker.classList.remove('expanded');
+                    if (cuDetailsContainer) cuDetailsContainer.innerHTML = '';
+                    alertDetails.delete('outdoor-unit-marker');
+                }
+
+            } catch (error) { console.error("Could not fetch data:", error); }
+        }
+
+function setupEnergySlider() {
+    const slider = document.getElementById('energy-slider-container');
+    const title = document.getElementById('energy-slider-title');
+    const slides = ['CU Energy', 'CS Energy'];
+    let currentSlide = 0;
+    let sliderInterval;
+
+    if (!slider || !title) {
+        console.error('Energy slider elements not found');
+        return;
+    }
+
+    function waitForChartsReady() {
+        return new Promise((resolve) => {
+            const checkCharts = () => {
+                const cuChart = document.getElementById('cuEnergyChart');
+                const csChart = document.getElementById('csEnergyChart');
+
+                if (cuChart && csChart && 
+                    cuChart.getContext('2d').canvas.width > 0 && 
+                    csChart.getContext('2d').canvas.width > 0) {
+                    resolve();
+                } else {
+                    setTimeout(checkCharts, 100);
+                }
+            };
+            checkCharts();
+        });
+    }
+
+    waitForChartsReady().then(() => {
+        if (sliderInterval) {
+            clearInterval(sliderInterval);
+        }
+
+        sliderInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            requestAnimationFrame(() => {
+                slider.style.transform = `translateX(-${currentSlide * 50}%)`;
+                title.textContent = slides[currentSlide];
+            });
+        }, 5000);
+    });
+
+    return () => {
+        if (sliderInterval) {
+            clearInterval(sliderInterval);
+        }
+    };
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setDate();
+            setInterval(setDate, 1000);
+
+            drawConnectorLines(); 
+
+            fetchData();
+            updateMachineEfficiency();
+            setInterval(() => {
+                fetchData();
+                updateMachineEfficiency();
+            }, 5000);
+
+            window.addEventListener('resize', drawConnectorLines);
+
+            const leftColumn = document.querySelector('.left-column');
+            leftColumn.addEventListener('click', (event) => {
+                const closeButton = event.target.closest('.details-close-button');
+                const balloon = event.target.closest('.info-balloon');
+                // if (closeButton) {
+                //     event.stopPropagation();
+                //     const parentBalloon = closeButton.closest('.info-balloon');
+                //     if (parentBalloon) parentBalloon.classList.remove('expanded');
+                //     return;
+                // }
+
+                if (balloon && balloon.classList.contains('alert-balloon')) {
+                    const isAlreadyExpanded = balloon.classList.contains('expanded');
+
+                    document.querySelectorAll('.info-balloon.expanded').forEach(b => {
+                        if (b !== balloon) b.classList.remove('expanded');
+                    });
+
+                    balloon.classList.toggle('expanded');
+
+                    if (!isAlreadyExpanded) {
+                        const details = alertDetails.get(balloon.id);
+                        if (details) {
+                            if (details.type === 'machine') {
+                                scrollToTarget(details.targetId);
+                            } else if (details.type === 'assembly') {
+                                if (details.targets && Array.isArray(details.targets)) {
+                                    details.targets.forEach(targetId => {
+                                        highlightTarget(targetId);
+                                    });
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            //dummy energy
+            const yesterdayTotalEnergy = [25, 23, 22, null, null, null, null, null, null, null];
+            const todayTotalEnergy = [27, 25, 24, null, null, null, null, null, null, null];
+            createEnergyChart('totalEnergyChart', yesterdayTotalEnergy, todayTotalEnergy, { min: 10, max: 30, ticks: { stepSize: 10 } });
+
+            const yesterdayCuEnergy = [18, 19, 19, null, null, null, null, null, null, null];
+            const todayCuEnergy = [7, null, null, 24, 25, 28, null, null, null, null];
+            createEnergyChart('cuEnergyChart', yesterdayCuEnergy, todayCuEnergy, { min: 10, max: 30, ticks: { stepSize: 10 } });
+
+            const yesterdayCsEnergy = [15, 16, 14, 17, null, null, null, null, null, null];
+            const todayCsEnergy = [null, 17, 15, 16, null, , null, null, null, null];
+            createEnergyChart('csEnergyChart', yesterdayCsEnergy, todayCsEnergy, { min: 10, max: 30, ticks: { stepSize: 10 } });
+
+            setupEnergySlider();
+        });
+    </script>
+</body>
+</html>
