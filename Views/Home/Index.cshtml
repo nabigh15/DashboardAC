@@ -148,10 +148,10 @@
         <span class="legend-color-box" style="background-color: #9B59B6;"></span>
         <span class="legend-label">Actual: <span id="legend-actual-cu">0</span></span>
     </div>
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-        <span class="legend-label">Achievement</span>
-    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+                                        <span class="legend-label">Achievement: <span id="legend-achievement-cu">0</span>%</span>
+                                    </div>
 </div>
     <div class="total-plan-display">
     Total Plan: <span id="total-plan-display-cu" style="color: white; font-weight: bold;">2370</span>
@@ -180,11 +180,10 @@
         <span class="legend-color-box" style="background-color: #9B59B6;"></span>
         <span class="legend-label">Actual: <span id="legend-actual-cs">0</span></span>
     </div>
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-        <span class="legend-label">Achievement</span>
-        
-    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+                                        <span class="legend-label">Achievement: <span id="legend-achievement-cs">0</span>%</span>
+                                    </div>
 </div>
 
 <div class="total-plan-display">
@@ -716,8 +715,10 @@ function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
     ctx.stroke();
 
     const lineId = canvasId === 'chartCU' ? 'cu' : 'cs';
-document.getElementById(`legend-actual-${lineId}`).textContent = actual;
-document.getElementById(`legend-plan-${lineId}`).textContent = dailyPlan;
+        document.getElementById(`legend-actual-${lineId}`).textContent = actual;
+        document.getElementById(`legend-plan-${lineId}`).textContent = dailyPlan;
+        const achievementPct = dailyPlan > 0 ? ((actual / dailyPlan) * 100).toFixed(0) : 0;
+        document.getElementById(`legend-achievement-${lineId}`).textContent = achievementPct;
 
 // --- TAMBAHKAN BARIS INI ---
 document.getElementById(`total-plan-display-${lineId}`).textContent = maxDaily;
@@ -902,7 +903,7 @@ function createOrUpdatePieChart(canvasId, chartInstance, defectsByCategory, line
     const options = {
         responsive: true,
         maintainAspectRatio: true,
-        cutout: '70%', /* ✅ Ubah dari 75% */
+        cutout: '0%', /* ✅ Ubah dari 75% */
         plugins: {
             legend: { display: false },
             tooltip: {
@@ -1045,7 +1046,7 @@ function updateQualityLegend(labels, colors, lineType) {
             const totalMinutesInTimeline = (displayEndHour - startHour) * 60;
             hoursElement.innerHTML = '';
             for (let h = startHour; h < displayEndHour; h++) {
-                const hourSpan = document.createElement('span'); q
+                const hourSpan = document.createElement('span'); 
                 hourSpan.textContent = `${String(h).padStart(2, '0')}.00`;
                 hoursElement.appendChild(hourSpan);
             }
@@ -1165,6 +1166,8 @@ function updateQualityLegend(labels, colors, lineType) {
                 const response = await fetch('/Home/GetDashboardData');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
+                console.log('Loss Time CU:', data.lossTimeCU);
+                console.log('Loss Time CS:', data.lossTimeCS);
 
                 // const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
                 // chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU);
@@ -1231,25 +1234,22 @@ document.getElementById('defect-count-cs').textContent = totalDefectsCS;
 
 // ✅ HAPUS BAGIAN updateQualityLegend yang lama (baris 613-621)
 
-// ✅ TAMBAHKAN KODE INI - Update legend dengan SEMUA kategori (CU + CS)
-const allCategories = [...cuDefectsByCategory, ...csDefectsByCategory];
-const allLabels = allCategories.map(d => d.category);
-const uniqueLabels = [...new Set(allLabels)];  // Hilangkan duplikat
-const uniqueColors = uniqueLabels.map(label => {
-    const index = allLabels.indexOf(label);
-    return colorPalette[index % colorPalette.length];
-});
-updateQualityLegend(uniqueLabels, uniqueColors);
+                        const lossTimeCU = data.lossTimeCU || {};
+        const lossTimeCS = data.lossTimeCS || {};
 
-                document.getElementById('cu-working-time').textContent = data.lossTimeCU.workingTime;
-                document.getElementById('cu-loss-time').textContent = data.lossTimeCU.lossTime;
-                document.getElementById('cu-load-time').textContent = data.lossTimeCU.loadTime;
-                updateAssemblyTimeline('cu', data.lossTimeCU);
+        document.getElementById('cu-working-time').textContent = lossTimeCU.workingTime ?? 0;
+        document.getElementById('cu-loss-time').textContent = lossTimeCU.lossTime ?? 0;
+        document.getElementById('cu-load-time').textContent = lossTimeCU.loadTime ?? 0;
+        if (lossTimeCU && Object.keys(lossTimeCU).length > 0) {
+            updateAssemblyTimeline('cu', lossTimeCU);
+        }
 
-                document.getElementById('cs-working-time').textContent = data.lossTimeCS.workingTime;
-                document.getElementById('cs-loss-time').textContent = data.lossTimeCS.lossTime;
-                document.getElementById('cs-load-time').textContent = data.lossTimeCS.loadTime;
-                updateAssemblyTimeline('cs', data.lossTimeCS);
+        document.getElementById('cs-working-time').textContent = lossTimeCS.workingTime ?? 0;
+        document.getElementById('cs-loss-time').textContent = lossTimeCS.lossTime ?? 0;
+        document.getElementById('cs-load-time').textContent = lossTimeCS.loadTime ?? 0;
+        if (lossTimeCS && Object.keys(lossTimeCS).length > 0) {
+            updateAssemblyTimeline('cs', lossTimeCS);
+        }
 
                 const now = new Date();
                 const indoorMarker = document.getElementById('indoor-unit-marker');

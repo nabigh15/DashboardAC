@@ -298,25 +298,26 @@
             margin-right: -30px; /* Sama kaya achievement CS */
         }
 
-   
+
 
 .pie-chart-container {
     position: relative;
     width: 150px;
     height: 150px;
     flex-shrink: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
 }
 
 .pie-center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: relative;
+    text-align: left;
     color: #fff;
     z-index: 5;
     pointer-events: none;
+    margin-left: 12px;
+    white-space: nowrap;
 }
 
     .pie-percent {
@@ -347,10 +348,10 @@
 
     .quality-legend-inline .legend-items-inline {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 6px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px 10px;
         width: 100%;
-        max-width: 200px;
+        max-width: 280px;
     }
 
     .quality-legend-inline .legend-item {
@@ -373,13 +374,13 @@
         white-space: nowrap;
     }
 
-    .loss-time-container {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        flex-grow: 1;
-        margin-bottom: 10px;
-    }
+.loss-time-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
 
     .loss-line-title {
         font-size: 1.2rem;
@@ -388,11 +389,16 @@
         flex-basis: 10px;
     }
 
-    .loss-line-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
+.loss-line-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background-color: rgba(20, 34, 61, 0.5);
+    flex: 1;
+}
 
     .loss-summary {
         flex-basis: 140px;
