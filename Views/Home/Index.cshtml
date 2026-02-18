@@ -126,85 +126,139 @@
                 <div id="assembly-achievement-card" class="widget-card" style="flex: 1;">
                     <div class="widget-title"><span>Assembly Achievement</span></div>
                     <div class="achievement-container">
-                        <div class="achievement-chart-wrapper">
-                            <div class="line-title">CU</div>
-                            <div class="chart-container">
-                                <canvas id="chartCU"></canvas>
-                                <div class="chart-text-center">
-                                    <div class="spinner-arc"></div>
-                                    <div class="chart-label">Act/Plan</div>
-                                    <div id="chart-values-cu" class="chart-value">0/0</div>
-                                </div>
-                                <div class="chart-text-start">0</div>
-                                <div id="chart-end-text-cu" class="chart-text-end">0</div>
-                            </div>
-                        </div>
-                        <div class="achievement-chart-wrapper">
-                            <div class="line-title">CS</div>
-                            <div class="chart-container">
-                                <canvas id="chartCS"></canvas>
-                                <div class="chart-text-center">
-                                    <div class="spinner-arc"></div>
-                                    <div class="chart-label">Act/Plan</div>
-                                    <div id="chart-values-cs" class="chart-value">0/0</div>
-                                </div>
-                                <div class="chart-text-start">0</div>
-                                <div id="chart-end-text-cs" class="chart-text-end">0</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ✅ KOTAK CU -->
+    <div class="achievement-chart-wrapper">
+        <div class="line-title">CU</div>
+        <div class="chart-container">
+            <canvas id="chartCU"></canvas>
+            <div class="chart-text-center">
+                <div class="chart-label"></div>
+                <div id="chart-values-cu" class="chart-value"></div>
+            </div>
+            <div class="chart-text-start"></div>
+            <div id="chart-end-text-cu" class="chart-text-end " style="opacity: 0;">100</div>
+        </div>
+        <!-- ✅ LEGEND DI DALAM KOTAK CU -->
+        <div class="achievement-legend">
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #28a745;"></span>
+        <span class="legend-label">Plan: <span id="legend-plan-cu">0</span></span>
+    </div>
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
+        <span class="legend-label">Actual: <span id="legend-actual-cu">0</span></span>
+    </div>
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+        <span class="legend-label">Achievement</span>
+    </div>
+</div>
+    <div class="total-plan-display">
+    Total Plan: <span id="total-plan-display-cu" style="color: white; font-weight: bold;">2370</span>
+</div>
+    </div>
+    
+    <!-- ✅ KOTAK CS -->
+    <div class="achievement-chart-wrapper">
+        <div class="line-title">CS</div>
+        <div class="chart-container">
+            <canvas id="chartCS"></canvas>
+            <div class="chart-text-center">
+                <div class="chart-label"></div>
+                <div id="chart-values-cs" class="chart-value"></div>
+            </div>
+            <div class="chart-text-start"></div>
+            <div id="chart-end-text-cs" class="chart-text-end">100 style="opacity: 0;"</div>
+        </div>
+        <!-- ✅ LEGEND DI DALAM KOTAK CS -->
+        <div class="achievement-legend">
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #28a745;"></span>
+        <span class="legend-label">Plan: <span id="legend-plan-cs">0</span></span>
+    </div>
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
+        <span class="legend-label">Actual: <span id="legend-actual-cs">0</span></span>
+    </div>
+    <div class="legend-item">
+        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+        <span class="legend-label">Achievement</span>
+        
+    </div>
+</div>
+
+<div class="total-plan-display">
+    Total Plan: <span id="total-plan-display-cs" style="color: white; font-weight: bold;">2370</span>
+</div>
+    </div>
+</div>
                 </div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
-                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
-                    <div class="widget-title"><span>Pass Through Ratio</span><span class="sub-text">(Quality Defect)</span></div>
-                    <div class="quality-defect-container">
-                        <div class="defect-bar-wrapper">
-                            <span class="line-title-small">CU</span>
-                            <div class="bar-container">
-                                <div id="quality-bar-cu" class="bar-fill"></div>
-                                <span class="quality-text">
-                                    <span id="quality-percent-cu">0.0</span>%
-                                    <span class="defect-count-label">(<span id="defect-count-cu">0</span> defects)</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="defect-bar-wrapper">
-                            <span class="line-title-small">CS</span>
-                            <div class="bar-container">
-                                <div id="quality-bar-cs" class="bar-fill"></div>
-                                <span class="quality-text">
-                                    <span id="quality-percent-cs">0.0</span>%
-                                    <span class="defect-count-label">(<span id="defect-count-cs">0</span> defects)</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <div id="quality-defect-card" class="widget-card" style="flex: 3;">
+    <div class="widget-title">
+        <span>Pass Through Ratio<span class="sub-text">(Quality Defect)</span></span>
+    </div>
+    <div class="quality-defect-container">
+        <!-- ✅ KOTAK CU -->
+        <div class="quality-chart-wrapper">
+            <div class="line-title">CU</div>
+            <div class="pie-chart-container">
+                <canvas id="quality-pie-cu"></canvas>
+                <div class="pie-center-text">
+                    <div class="pie-percent"><span id="quality-percent-cu">0</span>%</div>
+                    <div class="pie-defects">(<span id="defect-count-cu">0</span> defects)</div>
                 </div>
+            </div>
+            <!-- ✅ LEGEND DI DALAM KOTAK CU -->
+            <div class="quality-legend-inline">
+                <div id="quality-legend-items-cu" class="legend-items-inline">
+                    <!-- Auto-generated dari JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ KOTAK CS -->
+        <div class="quality-chart-wrapper">
+            <div class="line-title">CS</div>
+            <div class="pie-chart-container">
+                <canvas id="quality-pie-cs"></canvas>
+                <div class="pie-center-text">
+                    <div class="pie-percent"><span id="quality-percent-cs">0</span>%</div>
+                    <div class="pie-defects">(<span id="defect-count-cs">0</span> defects)</div>
+                </div>
+            </div>
+            <!-- ✅ LEGEND DI DALAM KOTAK CS -->
+            <div class="quality-legend-inline">
+                <div id="quality-legend-items-cs" class="legend-items-inline">
+                    <!-- Auto-generated dari JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
-                <div id="assembly-loss-time-card" class="widget-card" style="flex: 3;">
-                    <div class="widget-title">
-                        <div class="legend-container">
-                            <div class="legend-item">
-                                <span class="legend-color-box" style="background-color: #d90429;"></span>
-                                <span class="legend-label">Loss Time</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-color-box" style="background-color: #4F86F3;"></span>
-                                <span class="legend-label">Load Time</span>
-                            </div>
-                        </div>
-                        <span>Assembly Loss Time</span>
-                    </div>
+           <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
+    <div class="widget-title">
+        <span>Assembly Loss Time</span>
+    </div>
                     <div class="loss-time-container">
                         <div class="loss-line-wrapper">
                             <b class="loss-line-title">CU</b>
-                            <div class="loss-summary">
-                                <div><span>Working Time</span><span id="cu-working-time">0</span></div>
-                                <div><span>Loss Time</span><span id="cu-loss-time">0</span></div>
-                                <div><span>Load Time</span><span id="cu-load-time">0</span></div>
-                            </div>
+                           <div class="loss-summary">
+    <div><span>Working Time</span><span id="cu-working-time">0</span></div>
+    <div>
+        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+        <span>Loss Time</span>
+        <span id="cu-loss-time">0</span>
+    </div>
+    <div>
+        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+        <span>Load Time</span>
+        <span id="cu-load-time">0</span>
+    </div>
+</div>
                             <div class="timeline-container">
                                 <div class="timeline-track-wrapper">
                                     <div id="timeline-track-cu" class="timeline-track">
@@ -218,11 +272,19 @@
                         </div>
                         <div class="loss-line-wrapper">
                             <b class="loss-line-title">CS</b>
-                            <div class="loss-summary">
-                                <div><span>Working Time</span><span id="cs-working-time">0</span></div>
-                                <div><span>Loss Time</span><span id="cs-loss-time">0</span></div>
-                                <div><span>Load Time</span><span id="cs-load-time">0</span></div>
-                            </div>
+                           <div class="loss-summary">
+    <div><span>Working Time</span><span id="cs-working-time">0</span></div>
+    <div>
+        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+        <span>Loss Time</span>
+        <span id="cs-loss-time">0</span>
+    </div>
+    <div>
+        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+        <span>Load Time</span>
+        <span id="cs-load-time">0</span>
+    </div>
+</div>
                             <div class="timeline-container">
                                 <div class="timeline-track-wrapper">
                                     <div id="timeline-track-cs" class="timeline-track">
@@ -236,8 +298,8 @@
                         </div>
                     </div>
                 </div>
-                </a>
-                <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
+             </a>
+              <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
                 <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
                     <div class="widget-title">Machine Efficiency</div>
                     <div class="machine-efficiency-table">
@@ -259,7 +321,16 @@
                     </div>
                 </div>
                 </a>
-                <div class="widget-card" style="flex: 2;">
+                           </div> <!-- ✅ PENUTUP right-column DI SINI -->
+
+            <!-- ✅ MACHINE EFFICIENCY DI LUAR right-column -->
+
+
+        </main>
+    </div>
+
+                @* ENERGY CONTAINER - MULAI COMMENT *@
+                @* <div class="widget-card" style="flex: 2;">
                     <div class="energy-container">
                         <div class="energy-chart-wrapper">
                             <div class="energy-chart-title">Total Energy</div>
@@ -298,14 +369,25 @@
                             <span class="legend-label">Today Consump</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </main>
-    </div>
+                </div> *@
+                @* ENERGY CONTAINER - AKHIR COMMENT *@
 
+ 
     <script src="~/lib/chartjs/chart.umd.min.js"></script>
     <script type="text/javascript">
         let chartCU, chartCS, lossChartCU, lossChartCS;
+        const colorPalette = [
+    'rgba(255, 99, 132, 0.7)',
+    'rgba(54, 162, 235, 0.7)',
+    'rgba(255, 206, 86, 0.7)',
+    'rgba(75, 192, 192, 0.7)',
+    'rgba(153, 102, 255, 0.7)',
+    'rgba(255, 159, 64, 0.7)',
+    'rgba(255, 99, 255, 0.7)',
+    'rgba(99, 255, 132, 0.7)',
+    'rgba(132, 99, 255, 0.7)',
+    'rgba(235, 162, 54, 0.7)'
+];
 
         const alertDetails = new Map();
 
@@ -465,33 +547,423 @@
             });
         }
 
-        function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
-            const actualValue = (dailyPlan > 0 && actual <= dailyPlan) ? actual : (actual > dailyPlan ? dailyPlan : 0);
-            const remainderValue = (dailyPlan > 0) ? dailyPlan - actualValue : 1;
-            const data = {
-                datasets: [{
-                    data: [actualValue, remainderValue < 0 ? 0 : remainderValue],
-                    backgroundColor: ['#4F86F3', '#C7CBFF'],
-                    borderColor: '#14223D', borderWidth: 1, circumference: 180, rotation: 270
-                }]
-            };
-            const options = {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                layout: { padding: { top: 5, bottom: 5 } },
-                plugins: { legend: { display: false }, tooltip: { enabled: false } }
-            };
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            if (chartInstance) {
-                chartInstance.data.datasets[0].data = [actualValue, remainderValue < 0 ? 0 : remainderValue];
-                chartInstance.update();
-                return chartInstance;
-            } else {
-                return new Chart(ctx, { type: 'doughnut', data: data, options: options });
-            }
+// Fungsi baru untuk menggambar arc multi-warna (kecepatan)
+function drawMultiColorArc(ctx, centerX, centerY, radius, percentage, lineWidth) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+    const totalAngle = endAngle - startAngle;
+
+    // Background abu-abu
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+
+    // Progress arc dengan gradient warna
+    const progressAngle = startAngle + (totalAngle * (percentage / 100));
+
+    if (percentage > 0) {
+        // Red zone (0-80%)
+        const redEnd = Math.min(progressAngle, startAngle + (totalAngle * (80/100)));
+        if (progressAngle > startAngle) {
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, startAngle, redEnd, false);
+            ctx.strokeStyle = '#d90429';
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
         }
 
+        // Yellow zone (80-90%)
+        if (percentage > 80) {
+            const yellowStart = startAngle + (totalAngle * (80/100));
+            const yellowEnd = Math.min(progressAngle, startAngle + (totalAngle * (90/100)));
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, yellowStart, yellowEnd, false);
+            ctx.strokeStyle = '#ffc107';
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
+        }
+
+        // Green zone (90-150%)
+        if (percentage > 90) {
+            const greenStart = startAngle + (totalAngle * (90/150));
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, greenStart, progressAngle, false);
+            ctx.strokeStyle = '#28a745';
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
+        }
+    }
+}
+
+// Fungsi baru untuk menggambar arc solid (actual & plan)
+function drawSolidArc(ctx, centerX, centerY, radius, percentage, color, lineWidth) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+    const totalAngle = endAngle - startAngle;
+
+    // Background
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = lineWidth;
+    ctx.stroke();
+
+    // Progress
+    if (percentage > 0) {
+        const progressAngle = startAngle + (totalAngle * Math.min(percentage, 100) / 100);
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, progressAngle, false);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+    }
+}
+
+function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
+    // ✅ Tentukan maksimal harian
+    const maxDaily = (canvasId === 'chartCU') ? 2370 : 2115;
+
+    // Untuk speedometer & bar luar (pakai displayPlan)
+    const percentage = dailyPlan > 0 ? (actual / dailyPlan) * 100 : 0;
+    const cappedOuterPercentage = Math.min(percentage, 100);
+    const cappedNeedlePercentage = Math.min(percentage, 120);
+
+    // ✅ Untuk 2 bar dalam (pakai maxDaily)
+    const actualBarPercentage = (actual / maxDaily) * 100;
+    const planBarPercentage = (dailyPlan / maxDaily) * 100;
+
+    const cappedActualBar = Math.min(actualBarPercentage, 120);
+    const cappedPlanBar = Math.min(planBarPercentage, 120);
+
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = 260;
+    canvas.height = 190;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height - 90;
+
+    const radiusOuter = 80;
+    const radiusMiddle = 65;
+    const radiusInner = 50;
+
+    // ✅ WARNA LAMPU BERUBAH SESUAI PERSENTASE
+    let backlightColor;
+    let backlightIntensity;
+
+    if (percentage < 80) {
+        // Merah untuk < 80%
+        backlightColor = 'rgba(217, 4, 41, '; // #d90429 dalam RGB
+        backlightIntensity = 0.5; // Intensitas lebih tinggi untuk alert
+    } else if (percentage < 85) {
+        // Kuning untuk 80-85%
+        backlightColor = 'rgba(255, 193, 7, '; // #ffc107 dalam RGB
+        backlightIntensity = 0.4;
+    } else {
+        // Hijau untuk >= 85%
+        backlightColor = 'rgba(40, 167, 69, '; // #28a745 dalam RGB
+        backlightIntensity = 0.35;
+    }
+
+    // ✅ BACKLIGHT DENGAN WARNA DINAMIS
+    const backlightRadius = radiusOuter - 45;
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+
+    const gradient = ctx.createRadialGradient(
+        centerX, centerY, backlightRadius - 10, 
+        centerX, centerY, backlightRadius + 10
+    );
+
+    gradient.addColorStop(0, backlightColor + '0)');
+    gradient.addColorStop(0.5, backlightColor + backlightIntensity + ')');
+    gradient.addColorStop(1, backlightColor + '0)');
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, backlightRadius, startAngle, endAngle, false);
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 20;
+    ctx.stroke();
+
+    // Bar luar max 100%
+    drawSolidArc(ctx, centerX, centerY, radiusOuter, cappedOuterPercentage, '#FFA500', 15);
+
+    // Bar tengah sampai actual, Bar dalam sampai plan
+    drawSolidArc(ctx, centerX, centerY, radiusMiddle, cappedActualBar, '#9B59B6', 12);
+    drawSolidArc(ctx, centerX, centerY, radiusInner, cappedPlanBar, '#28a745', 10);
+
+    drawTickMarks(ctx, centerX, centerY, radiusOuter);
+    drawNumbers(ctx, centerX, centerY, radiusOuter);
+
+    // Jarum max 120%
+    drawNeedle(ctx, centerX, centerY, radiusOuter * 0.30, cappedNeedlePercentage);
+
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    ctx.strokeStyle = '#14223D';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    const lineId = canvasId === 'chartCU' ? 'cu' : 'cs';
+document.getElementById(`legend-actual-${lineId}`).textContent = actual;
+document.getElementById(`legend-plan-${lineId}`).textContent = dailyPlan;
+
+// --- TAMBAHKAN BARIS INI ---
+document.getElementById(`total-plan-display-${lineId}`).textContent = maxDaily;
+
+// --- TAMBAHKAN INI JUGA UNTUK MENGHAPUS ANGKA DI SAMPING DIAGRAM ---
+document.getElementById(`chart-end-text-${lineId}`).textContent = "";
+
+    return null;
+}
+function drawTickMarks(ctx, centerX, centerY, radius) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+    const totalTicks = 11;
+
+    for (let i = 0; i < totalTicks; i++) {
+        const angle = startAngle + (endAngle - startAngle) * (i / (totalTicks - 1));
+        const isMainTick = i % 2 === 0;
+
+        // ✅ GESER KELUAR - makin kecil angkanya = makin keluar
+         const innerRadius = radius - (isMainTick ? 43 : 43);   // ✅ SAMA KAYAK ANGKA (radius - 48)
+        const outerRadius = radius - (isMainTick ? 39 : 41);   // ✅ DARI 18/20 JADI 8/10
+        const x1 = centerX + innerRadius * Math.cos(angle);
+        const y1 = centerY + innerRadius * Math.sin(angle);
+        const x2 = centerX + outerRadius * Math.cos(angle);
+        const y2 = centerY + outerRadius * Math.sin(angle);
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = '#fff';
+        ctx.lineWidth = isMainTick ? 2 : 1.5;
+        ctx.stroke();
+    }
+}
+
+function drawNumbers(ctx, centerX, centerY, radius) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+    const numbers = [0, 20, 40, 60, 80, 100, 120];
+
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    for (let i = 0; i < numbers.length; i++) {
+        const angle = startAngle + (endAngle - startAngle) * (numbers[i] / 120);
+        const textRadius = radius - 52;
+        let x = centerX + textRadius * Math.cos(angle);
+        let y = centerY + textRadius * Math.sin(angle);
+
+        // ✅ EFEK CAHAYA (BACKLIGHT)
+        const glowGradient = ctx.createRadialGradient(x, y, 0, x, y, 15);
+        glowGradient.addColorStop(0, 'rgba(100, 150, 255, 0.4)'); // Cahaya biru
+        glowGradient.addColorStop(0.5, 'rgba(100, 150, 255, 0.2)');
+        glowGradient.addColorStop(1, 'rgba(100, 150, 255, 0)');
+
+        ctx.fillStyle = glowGradient;
+        ctx.fillRect(x - 15, y - 15, 30, 30);
+
+        // ✅ ANGKA
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'; 
+        ctx.font = 'bold 9px Arial';
+        ctx.fillText(numbers[i], x, y);
+    }
+}
+function drawColoredTrack(ctx, centerX, centerY, radius, percentage) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+    const totalAngle = endAngle - startAngle;
+
+    // Background abu-abu (full track)
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.lineWidth = 8;
+    ctx.stroke();
+
+    // Progress dengan warna
+    if (percentage > 0) {
+        const cappedPercentage = Math.min(percentage, 120);
+        const progressAngle = startAngle + (totalAngle * (cappedPercentage / 120));
+
+        // Red zone (0-80%)
+        const redEnd = Math.min(progressAngle, startAngle + (totalAngle * (80/120)));
+        if (progressAngle > startAngle) {
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, startAngle, redEnd, false);
+            ctx.strokeStyle = '#d90429';
+            ctx.lineWidth = 8;
+            ctx.stroke();
+        }
+
+        // Yellow zone (80-85%)
+        if (percentage >= 80) {
+            const yellowStart = startAngle + (totalAngle * (80/120));
+            const yellowEnd = Math.min(progressAngle, startAngle + (totalAngle * (85/120)));
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, yellowStart, yellowEnd, false);
+            ctx.strokeStyle = '#ffc107';
+            ctx.lineWidth = 8;
+            ctx.stroke();
+        }
+
+        // Green zone (85-120%)
+        if (percentage >= 85) {
+            const greenStart = startAngle + (totalAngle * (85/120));
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, greenStart, progressAngle, false);
+            ctx.strokeStyle = '#28a745';
+            ctx.lineWidth = 8;
+            ctx.stroke();
+        }
+    }
+}
+function drawNeedle(ctx, centerX, centerY, length, percentage) {
+    const startAngle = Math.PI * 0.75;
+    const endAngle = Math.PI * 2.25;
+
+    // ✅ TAMBAH 2 BARIS INI
+    const cappedPercentage = Math.min(percentage, 120);
+    const angle = startAngle + (endAngle - startAngle) * (cappedPercentage / 120);
+
+    const needleX = centerX + length * Math.cos(angle);
+    const needleY = centerY + length * Math.sin(angle);
+
+    // Shadow
+    ctx.beginPath();
+    ctx.moveTo(centerX + 2, centerY + 2);
+    ctx.lineTo(needleX + 2, needleY + 2);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
+    ctx.lineWidth = 6;
+    ctx.stroke();
+
+    // Main needle
+    ctx.beginPath();
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(needleX, needleY);
+    ctx.strokeStyle = 'rgba(255, 0, 0, 0.8)';
+    ctx.lineWidth = 4;
+    ctx.stroke();
+}
+function updateNeedle(canvasId, percentage) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) {
+        console.warn(`Canvas ${canvasId} not found`);
+        return;
+    }
+
+    const container = canvas.parentElement;
+    if (!container) {
+        console.warn(`Container for ${canvasId} not found`);
+        return;
+    }
+
+    let needle = container.querySelector('.gauge-needle');
+    if (!needle) {
+        needle = document.createElement('div');
+        needle.className = 'gauge-needle';
+        container.appendChild(needle);
+        console.log(`Needle created for ${canvasId}`);
+    }
+
+    const angle = -90 + (percentage * 1.8);
+    needle.style.transform = `translate(-50%, 0) rotate(${angle}deg)`;
+
+    console.log(`Needle updated for ${canvasId}: ${percentage}% -> ${angle}deg`);
+}
+function createOrUpdatePieChart(canvasId, chartInstance, defectsByCategory, lineType) {
+    const labels = defectsByCategory.map(d => d.category);
+    const dataValues = defectsByCategory.map(d => d.count);
+    const backgroundColors = defectsByCategory.map((_, index) => colorPalette[index % colorPalette.length]);
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            data: dataValues,
+            backgroundColor: backgroundColors,
+            borderColor: '#14223D',
+            borderWidth: 1
+        }]
+    };
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        cutout: '70%', /* ✅ Ubah dari 75% */
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                enabled: true,
+                callbacks: {
+                    label: function(context) {
+                        const label = context.label || '';
+                        const value = context.parsed || 0;
+                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                        const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                        return `${label}: ${value} (${percentage}%)`;
+                    }
+                }
+            }
+        }
+    };
+
+    const ctx = document.getElementById(canvasId).getContext('2d');
+
+    if (chartInstance) {
+        chartInstance.data.labels = labels;
+        chartInstance.data.datasets[0].data = dataValues;
+        chartInstance.data.datasets[0].backgroundColor = backgroundColors;
+        chartInstance.update();
+
+        // ✅ Update legend untuk line ini
+        updateQualityLegend(labels, backgroundColors, lineType);
+
+        return chartInstance;
+    } else {
+        const newChart = new Chart(ctx, { type: 'doughnut', data: data, options: options });
+
+        // ✅ Update legend untuk line ini
+        updateQualityLegend(labels, backgroundColors, lineType);
+
+        return newChart;
+    }
+}
+
+// ✅ TAMBAHKAN FUNGSI BARU INI (TEPAT SETELAH createOrUpdatePieChart)
+// ✅ GANTI FUNGSI INI - Legend gabungin semua kategori dari CU & CS
+// ✅ GANTI FUNGSI INI - Legend terpisah untuk CU & CS
+function updateQualityLegend(labels, colors, lineType) {
+    const legendContainerId = lineType === 'CU' ? 'quality-legend-items-cu' : 'quality-legend-items-cs';
+    const legendContainer = document.getElementById(legendContainerId);
+    if (!legendContainer) return;
+
+    // ✅ Clear dan rebuild legend
+    legendContainer.innerHTML = '';
+
+    labels.forEach((label, index) => {
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = `
+            <span class="legend-color-box" style="background-color: ${colors[index]};"></span>
+            <span class="legend-label">${label}</span>
+        `;
+        legendContainer.appendChild(item);
+    });
+}
+ 
         function setDate() {
             const dateElement = document.getElementById('current-date');
             const now = new Date();
@@ -573,7 +1045,7 @@
             const totalMinutesInTimeline = (displayEndHour - startHour) * 60;
             hoursElement.innerHTML = '';
             for (let h = startHour; h < displayEndHour; h++) {
-                const hourSpan = document.createElement('span');
+                const hourSpan = document.createElement('span'); q
                 hourSpan.textContent = `${String(h).padStart(2, '0')}.00`;
                 hoursElement.appendChild(hourSpan);
             }
@@ -704,24 +1176,70 @@
                 // document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
                 // document.getElementById('chart-end-text-cs').textContent = data.lineCS.dailyPlan;
 
-                const dailyPlanCU = data.lineCU.dailyPlan;
-                const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
-                chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, dailyPlanCU);
-                document.getElementById('chart-values-cu').textContent = `${data.lineCU.totalActual}/${displayPlanCU}`; 
-                document.getElementById('chart-end-text-cu').textContent = data.lineCU.dailyPlan;
+               // ✅ CU - Pakai displayPlan untuk CHART & TEXT
+const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
+chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU);
+document.getElementById('chart-values-cu').textContent = `${data.lineCU.totalActual}/${displayPlanCU}`; 
+document.getElementById('chart-end-text-cu').textContent = ''; // ✅ KOSONGKAN
+document.getElementById('total-plan-display-cu').textContent = data.lineCU.dailyPlan; // ✅ TAMBAH INI
 
-                const dailyPlanCS = data.lineCS.dailyPlan;
-                const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
-                chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, dailyPlanCS);
-                document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
-                document.getElementById('chart-end-text-cs').textContent = data.lineCS.dailyPlan;
+// ✅ CS - Pakai displayPlan untuk CHART & TEXT
+const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
+chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, displayPlanCS);
+document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
+document.getElementById('chart-end-text-cs').textContent = ''; // ✅ KOSONGKAN
+document.getElementById('total-plan-display-cs').textContent = data.lineCS.dailyPlan; // ✅ TAMBAH INI
+                // Update CU Quality Pie Chart
+// Update CU Quality Pie Chart
+const cuDefectsByCategory = data.lineCU.defectsByCategory || [
+    {category: 'PREPARING', count: 5},
+    {category: 'GAS LEAK', count: 3},
+    {category: 'RUNNING', count: 8},
+    {category: 'INNER', count: 2},
+    {category: 'FINAL', count: 4},
+    {category: 'DETAIL', count: 1}
+];
 
-                document.getElementById('quality-bar-cu').style.width = data.lineCU.qualityRate + '%';
-                document.getElementById('quality-percent-cu').textContent = data.lineCU.qualityRate.toFixed(0);
-                document.getElementById('defect-count-cu').textContent = data.lineCU.totalDefects;
-                document.getElementById('quality-bar-cs').style.width = data.lineCS.qualityRate + '%';
-                document.getElementById('quality-percent-cs').textContent = data.lineCS.qualityRate.toFixed(0);
-                document.getElementById('defect-count-cs').textContent = data.lineCS.totalDefects;
+if (!window.qualityPieCU) {
+    window.qualityPieCU = createOrUpdatePieChart('quality-pie-cu', null, cuDefectsByCategory, 'CU'); // ✅ TAMBAH 'CU'
+} else {
+    window.qualityPieCU = createOrUpdatePieChart('quality-pie-cu', window.qualityPieCU, cuDefectsByCategory, 'CU'); // ✅ TAMBAH 'CU'
+}
+
+const totalDefectsCU = cuDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
+const qualityRateCU = data.lineCU.totalActual > 0 ? ((data.lineCU.totalActual - totalDefectsCU) / data.lineCU.totalActual * 100) : 100;
+document.getElementById('quality-percent-cu').textContent = qualityRateCU.toFixed(0);
+document.getElementById('defect-count-cu').textContent = totalDefectsCU;
+
+const csDefectsByCategory = data.lineCS.defectsByCategory || [
+    {category: 'Chassis', count: 4},
+    {category: 'Preparing', count: 6},
+    {category: 'Running', count: 7},
+    {category: 'Final', count: 3}
+];
+
+if (!window.qualityPieCS) {
+    window.qualityPieCS = createOrUpdatePieChart('quality-pie-cs', null, csDefectsByCategory, 'CS'); // ✅ TAMBAH 'CS'
+} else {
+    window.qualityPieCS = createOrUpdatePieChart('quality-pie-cs', window.qualityPieCS, csDefectsByCategory, 'CS'); // ✅ TAMBAH 'CS'
+}
+
+const totalDefectsCS = csDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
+const qualityRateCS = data.lineCS.totalActual > 0 ? ((data.lineCS.totalActual - totalDefectsCS) / data.lineCS.totalActual * 100) : 100;
+document.getElementById('quality-percent-cs').textContent = qualityRateCS.toFixed(0);
+document.getElementById('defect-count-cs').textContent = totalDefectsCS;
+
+// ✅ HAPUS BAGIAN updateQualityLegend yang lama (baris 613-621)
+
+// ✅ TAMBAHKAN KODE INI - Update legend dengan SEMUA kategori (CU + CS)
+const allCategories = [...cuDefectsByCategory, ...csDefectsByCategory];
+const allLabels = allCategories.map(d => d.category);
+const uniqueLabels = [...new Set(allLabels)];  // Hilangkan duplikat
+const uniqueColors = uniqueLabels.map(label => {
+    const index = allLabels.indexOf(label);
+    return colorPalette[index % colorPalette.length];
+});
+updateQualityLegend(uniqueLabels, uniqueColors);
 
                 document.getElementById('cu-working-time').textContent = data.lossTimeCU.workingTime;
                 document.getElementById('cu-loss-time').textContent = data.lossTimeCU.lossTime;
@@ -925,7 +1443,7 @@ function setupEnergySlider() {
             createEnergyChart('cuEnergyChart', yesterdayCuEnergy, todayCuEnergy, { min: 10, max: 30, ticks: { stepSize: 10 } });
 
             const yesterdayCsEnergy = [15, 16, 14, 17, null, null, null, null, null, null];
-            const todayCsEnergy = [null, 17, 15, 16, null, , null, null, null, null];
+            const todayCsEnergy = [null, 17, 15, 16, null, null, null, null, null];
             createEnergyChart('csEnergyChart', yesterdayCsEnergy, todayCsEnergy, { min: 10, max: 30, ticks: { stepSize: 10 } });
 
             setupEnergySlider();
