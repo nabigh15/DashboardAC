@@ -123,7 +123,7 @@
             </div>
             <div class="right-column">
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/ProductionReport/index" class="card-link" target="production_report_tab" rel="noopener noreferrer">
-                <div id="assembly-achievement-card" class="widget-card" style="flex: 1;">
+                <div id="assembly-achievement-card" class="widget-card" style="flex: 2;">
                     <div class="widget-title"><span>Assembly Achievement</span></div>
                     <div class="achievement-container">
     <!-- ✅ KOTAK CU -->
@@ -150,7 +150,7 @@
     </div>
                                     <div class="legend-item">
                                         <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-label">Achievement: <span id="legend-achievement-cu">0</span>%</span>
+                                        <span class="legend-label">Speed: <span id="legend-achievement-cu">0</span>%</span>
                                     </div>
 </div>
     <div class="total-plan-display">
@@ -182,7 +182,7 @@
     </div>
                                     <div class="legend-item">
                                         <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-label">Achievement: <span id="legend-achievement-cs">0</span>%</span>
+                                        <span class="legend-label">Speed: <span id="legend-achievement-cs">0</span>%</span>
                                     </div>
 </div>
 
@@ -194,7 +194,7 @@
                 </div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
-                <div id="quality-defect-card" class="widget-card" style="flex: 3;">
+                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
     <div class="widget-title">
         <span>Pass Through Ratio<span class="sub-text">(Quality Defect)</span></span>
     </div>
@@ -238,87 +238,84 @@
 </div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
-           <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
-    <div class="widget-title">
-        <span>Assembly Loss Time</span>
-    </div>
-                    <div class="loss-time-container">
-                        <div class="loss-line-wrapper">
-                            <b class="loss-line-title">CU</b>
-                           <div class="loss-summary">
-    <div><span>Working Time</span><span id="cu-working-time">0</span></div>
-    <div>
-        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-        <span>Loss Time</span>
-        <span id="cu-loss-time">0</span>
-    </div>
-    <div>
-        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-        <span>Load Time</span>
-        <span id="cu-load-time">0</span>
-    </div>
-</div>
-                            <div class="timeline-container">
-                                <div class="timeline-track-wrapper">
-                                    <div id="timeline-track-cu" class="timeline-track">
-                                        <div id="timeline-progress-cu" class="timeline-progress"></div>
+                    <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
+                        <div class="widget-title">
+                            <span>Assembly Loss Time</span>
+                        </div>
+                        <div class="loss-time-container">
+                            <div class="loss-line-wrapper">
+                                <b class="loss-line-title">CU</b>
+                                <div class="loss-summary">
+                                    <div><span>Working Time</span><span id="cu-working-time">0</span></div>
+                                    <div>
+                                        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+                                        <span>Loss Time</span>
+                                        <span id="cu-loss-time">0</span>
                                     </div>
-                                    <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                                    <div>
+                                        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+                                        <span>Load Time</span>
+                                        <span id="cu-load-time">0</span>
+                                    </div>
                                 </div>
-                                <div class="timeline-hours">
+                                <div class="timeline-container">
+                                    <div class="timeline-track-wrapper">
+                                        <div id="timeline-track-cu" class="timeline-track">
+                                            <div id="timeline-progress-cu" class="timeline-progress"></div>
+                                        </div>
+                                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                                    </div>
+                                    <div class="timeline-hours"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="loss-line-wrapper">
-                            <b class="loss-line-title">CS</b>
-                           <div class="loss-summary">
-    <div><span>Working Time</span><span id="cs-working-time">0</span></div>
-    <div>
-        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-        <span>Loss Time</span>
-        <span id="cs-loss-time">0</span>
-    </div>
-    <div>
-        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-        <span>Load Time</span>
-        <span id="cs-load-time">0</span>
-    </div>
-</div>
-                            <div class="timeline-container">
-                                <div class="timeline-track-wrapper">
-                                    <div id="timeline-track-cs" class="timeline-track">
-                                        <div id="timeline-progress-cs" class="timeline-progress"></div>
+                            <div class="loss-line-wrapper">
+                                <b class="loss-line-title">CS</b>
+                                <div class="loss-summary">
+                                    <div><span>Working Time</span><span id="cs-working-time">0</span></div>
+                                    <div>
+                                        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+                                        <span>Loss Time</span>
+                                        <span id="cs-loss-time">0</span>
                                     </div>
-                                    <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                                    <div>
+                                        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+                                        <span>Load Time</span>
+                                        <span id="cs-load-time">0</span>
+                                    </div>
                                 </div>
-                                <div class="timeline-hours">
+                                <div class="timeline-container">
+                                    <div class="timeline-track-wrapper">
+                                        <div id="timeline-track-cs" class="timeline-track">
+                                            <div id="timeline-progress-cs" class="timeline-progress"></div>
+                                        </div>
+                                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                                    </div>
+                                    <div class="timeline-hours"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-             </a>
-              <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
-                <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
-                    <div class="widget-title">Machine Efficiency</div>
-                    <div class="machine-efficiency-table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Machine Name</th>
-                                    <th>OEE</th>
-                                    <th>Operating Ratio</th>
-                                    <th>Ability</th>
-                                    <th>Quality</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                </a>
 
-                            </tbody>
-                        </table>
+                <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
+                    <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
+                        <div class="widget-title">Machine Efficiency</div>
+                        <div class="machine-efficiency-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Machine Name</th>
+                                        <th>OEE</th>
+                                        <th>Operating Ratio</th>
+                                        <th>Ability</th>
+                                        <th>Quality</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
                 </a>
                            </div> <!-- ✅ PENUTUP right-column DI SINI -->
 
@@ -903,7 +900,7 @@ function createOrUpdatePieChart(canvasId, chartInstance, defectsByCategory, line
     const options = {
         responsive: true,
         maintainAspectRatio: true,
-        cutout: '0%', /* ✅ Ubah dari 75% */
+        cutout: '50%', /* ✅ Ubah dari 75% */
         plugins: {
             legend: { display: false },
             tooltip: {

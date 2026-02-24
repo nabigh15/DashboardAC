@@ -62,8 +62,8 @@
         position: relative;
         flex-grow: 0; /* ✅ TAMBAHIN */
         flex-shrink: 0; /* ✅ TAMBAHIN */
-        flex: 0 0 48%; /* ✅ GANTI - left 38% */
-        max-width: 48%; /* ✅ GANTI */
+        flex: 0 0 55%; /* ✅ GANTI - left 38% */
+        max-width: 55%; /* ✅ GANTI */
     }
 
         .left-column img {
@@ -126,17 +126,17 @@
         margin-bottom: 10px;
     }
 
-    .achievement-chart-wrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 2px solid rgba(255, 255, 255, 0.3); /* ✅ TAMBAH */
-        border-radius: 8px; /* ✅ TAMBAH */
-        padding: 15px 10px; /* ✅ TAMBAH */
-        background-color: rgba(20, 34, 61, 0.5); /* ✅ TAMBAH */
-        position: relative; /* ✅ TAMBAH */
-    }
+.achievement-chart-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    padding: 15px 10px;
+    background-color: transparent;
+    position: relative;
+}
 
     /* Perbaiki chart container */
     .chart-container {
@@ -245,7 +245,8 @@
 
     /* Quality Defect Container - Pie Chart */
     #quality-defect-card {
-        max-height: 350px; /* Batasi tinggi box biar ga gedein */
+        flax: 1 !important;
+        max-height: none !important; /* Batasi tinggi box biar ga gedein */
     }
 
 .quality-defect-container {
@@ -264,10 +265,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border: none;
+    border-radius: 0;
     padding: 15px 10px;
-    background-color: rgba(20, 34, 61, 0.5);
+    background-color: transparent;
     position: relative;
 }
 
@@ -308,27 +309,31 @@
     margin-bottom: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .pie-center-text {
-    position: relative;
-    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     color: #fff;
     z-index: 5;
     pointer-events: none;
-    margin-left: 12px;
+    margin-left: 0;
     white-space: nowrap;
 }
 
     .pie-percent {
-        font-size: 1.2rem;
+        font-size: 0.85rem;
         font-weight: bold;
         color: #fff;
         line-height: 1.1;
     }
 
 .pie-defects {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     font-weight: normal;
     color: #fff;
     margin-top: 2px;
@@ -347,11 +352,10 @@
 }
 
     .quality-legend-inline .legend-items-inline {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px 10px;
-        width: 100%;
-        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: auto;
     }
 
     .quality-legend-inline .legend-item {
@@ -393,10 +397,10 @@
     display: flex;
     align-items: center;
     gap: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border: none;
+    border-radius: 0;
     padding: 8px 12px;
-    background-color: rgba(20, 34, 61, 0.5);
+    background-color: transparent;
     flex: 1;
 }
 
