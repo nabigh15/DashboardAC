@@ -77,11 +77,16 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    min-width: 0; /* Mencegah konten di dalam memaksa lebar keluar */
+    min-width: 0;
     overflow: hidden;
+    height: calc(100vh - 60px);
 }
 
-
+.right-column .widget-card {
+    flex: 1;          /* semua widget bagi ruang sama rata */
+    min-height: 0;    /* penting agar tidak overflow */
+    overflow: hidden;
+}
 
 .widget-card {
     background-color: #14223D;
@@ -123,7 +128,8 @@
         display: flex;
         gap: 2px;
         flex-grow: 1;
-        margin-bottom: 10px;
+        margin-bottom: 4px;
+        align-items: center;
     }
 
 .achievement-chart-wrapper {
@@ -133,7 +139,7 @@
     align-items: center;
     border: none;
     border-radius: 0;
-    padding: 15px 10px;
+    padding: 5px 8px;
     background-color: transparent;
     position: relative;
 }
@@ -404,11 +410,15 @@
     flex: 1;
 }
 
-    .loss-summary {
-        flex-basis: 140px;
-        font-size: 1rem;
-        color: #fff;
-    }
+.loss-summary {
+    display: grid;
+    grid-template-columns: 14px 90px auto;
+    align-items: center;
+    gap: 4px 6px;
+    font-size: 1rem;
+    color: #fff;
+    flex-basis: 140px;
+}
 
         .loss-summary div {
             display: flex;
@@ -968,10 +978,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 0 10px;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 0;
+    flex-shrink: 0;
 }
+
 
     .achievement-legend .legend-item {
         display: flex;
@@ -979,6 +991,7 @@
         gap: 6px;
         font-size: 11px;
         color: rgba(255, 255, 255, 0.8);
+        width: 130px;
     }
 
     .achievement-legend .legend-color-box {
@@ -988,6 +1001,7 @@
     }
 
     .achievement-legend .legend-label {
+        flex: 1;
         white-space: nowrap;
     }
 
@@ -1030,12 +1044,13 @@
 /* ✅ TAMBAH - Legend di dalam kotak CU/CS */
 .achievement-chart-wrapper .achievement-legend {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 6px;
     width: 100%;
 }
 
@@ -1045,6 +1060,7 @@
         gap: 5px;
         font-size: 10px;
         color: rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
     }
 
     .achievement-chart-wrapper .achievement-legend .legend-color-box {
@@ -1070,13 +1086,37 @@
 
 /* ✅ TAMBAHKAN DI SINI - Styling Total Plan di bawah legend */
 .achievement-chart-wrapper .total-plan-display {
-    text-align: center;
-    margin-top: 8px;
-    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    width: 130px; /* samakan lebar dengan legend */
+    font-size: 0.8rem;
     color: #fff !important;
+    margin-top: 6px;
 }
 
     .achievement-chart-wrapper .total-plan-display span {
+
         color: #fff !important;
         font-weight: bold !important;
+    }
+
+.legend-and-total {
+    display: grid;
+    grid-template-columns: 14px 70px auto;
+    align-items: center;
+    gap: 4px 6px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+    .legend-and-total .legend-color-box {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+    }
+
+    .legend-and-total .legend-key {
+        white-space: nowrap;
+        text-align: left; /* ← titik dua rata kanan */
     }

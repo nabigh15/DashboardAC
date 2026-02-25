@@ -120,183 +120,6 @@
                     <span class="balloon-title">Cond</span>
                     <div class="balloon-details"></div>
                 </div>
-            </div>
-            <div class="right-column">
-                <a href="http://10.83.33.103:8001/ProductionMonitoring/ProductionReport/index" class="card-link" target="production_report_tab" rel="noopener noreferrer">
-                <div id="assembly-achievement-card" class="widget-card" style="flex: 2;">
-                    <div class="widget-title"><span>Assembly Achievement</span></div>
-                    <div class="achievement-container">
-    <!-- ✅ KOTAK CU -->
-    <div class="achievement-chart-wrapper">
-        <div class="line-title">CU</div>
-        <div class="chart-container">
-            <canvas id="chartCU"></canvas>
-            <div class="chart-text-center">
-                <div class="chart-label"></div>
-                <div id="chart-values-cu" class="chart-value"></div>
-            </div>
-            <div class="chart-text-start"></div>
-            <div id="chart-end-text-cu" class="chart-text-end " style="opacity: 0;">100</div>
-        </div>
-        <!-- ✅ LEGEND DI DALAM KOTAK CU -->
-        <div class="achievement-legend">
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #28a745;"></span>
-        <span class="legend-label">Plan: <span id="legend-plan-cu">0</span></span>
-    </div>
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
-        <span class="legend-label">Actual: <span id="legend-actual-cu">0</span></span>
-    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-label">Speed: <span id="legend-achievement-cu">0</span>%</span>
-                                    </div>
-</div>
-    <div class="total-plan-display">
-    Total Plan: <span id="total-plan-display-cu" style="color: white; font-weight: bold;">2370</span>
-</div>
-    </div>
-    
-    <!-- ✅ KOTAK CS -->
-    <div class="achievement-chart-wrapper">
-        <div class="line-title">CS</div>
-        <div class="chart-container">
-            <canvas id="chartCS"></canvas>
-            <div class="chart-text-center">
-                <div class="chart-label"></div>
-                <div id="chart-values-cs" class="chart-value"></div>
-            </div>
-            <div class="chart-text-start"></div>
-            <div id="chart-end-text-cs" class="chart-text-end">100 style="opacity: 0;"</div>
-        </div>
-        <!-- ✅ LEGEND DI DALAM KOTAK CS -->
-        <div class="achievement-legend">
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #28a745;"></span>
-        <span class="legend-label">Plan: <span id="legend-plan-cs">0</span></span>
-    </div>
-    <div class="legend-item">
-        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
-        <span class="legend-label">Actual: <span id="legend-actual-cs">0</span></span>
-    </div>
-                                    <div class="legend-item">
-                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-label">Speed: <span id="legend-achievement-cs">0</span>%</span>
-                                    </div>
-</div>
-
-<div class="total-plan-display">
-    Total Plan: <span id="total-plan-display-cs" style="color: white; font-weight: bold;">2370</span>
-</div>
-    </div>
-</div>
-                </div>
-                </a>
-                <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
-                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
-    <div class="widget-title">
-        <span>Pass Through Ratio<span class="sub-text">(Quality Defect)</span></span>
-    </div>
-    <div class="quality-defect-container">
-        <!-- ✅ KOTAK CU -->
-        <div class="quality-chart-wrapper">
-            <div class="line-title">CU</div>
-            <div class="pie-chart-container">
-                <canvas id="quality-pie-cu"></canvas>
-                <div class="pie-center-text">
-                    <div class="pie-percent"><span id="quality-percent-cu">0</span>%</div>
-                    <div class="pie-defects">(<span id="defect-count-cu">0</span> defects)</div>
-                </div>
-            </div>
-            <!-- ✅ LEGEND DI DALAM KOTAK CU -->
-            <div class="quality-legend-inline">
-                <div id="quality-legend-items-cu" class="legend-items-inline">
-                    <!-- Auto-generated dari JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- ✅ KOTAK CS -->
-        <div class="quality-chart-wrapper">
-            <div class="line-title">CS</div>
-            <div class="pie-chart-container">
-                <canvas id="quality-pie-cs"></canvas>
-                <div class="pie-center-text">
-                    <div class="pie-percent"><span id="quality-percent-cs">0</span>%</div>
-                    <div class="pie-defects">(<span id="defect-count-cs">0</span> defects)</div>
-                </div>
-            </div>
-            <!-- ✅ LEGEND DI DALAM KOTAK CS -->
-            <div class="quality-legend-inline">
-                <div id="quality-legend-items-cs" class="legend-items-inline">
-                    <!-- Auto-generated dari JS -->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                </a>
-                <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
-                    <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
-                        <div class="widget-title">
-                            <span>Assembly Loss Time</span>
-                        </div>
-                        <div class="loss-time-container">
-                            <div class="loss-line-wrapper">
-                                <b class="loss-line-title">CU</b>
-                                <div class="loss-summary">
-                                    <div><span>Working Time</span><span id="cu-working-time">0</span></div>
-                                    <div>
-                                        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-                                        <span>Loss Time</span>
-                                        <span id="cu-loss-time">0</span>
-                                    </div>
-                                    <div>
-                                        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-                                        <span>Load Time</span>
-                                        <span id="cu-load-time">0</span>
-                                    </div>
-                                </div>
-                                <div class="timeline-container">
-                                    <div class="timeline-track-wrapper">
-                                        <div id="timeline-track-cu" class="timeline-track">
-                                            <div id="timeline-progress-cu" class="timeline-progress"></div>
-                                        </div>
-                                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
-                                    </div>
-                                    <div class="timeline-hours"></div>
-                                </div>
-                            </div>
-                            <div class="loss-line-wrapper">
-                                <b class="loss-line-title">CS</b>
-                                <div class="loss-summary">
-                                    <div><span>Working Time</span><span id="cs-working-time">0</span></div>
-                                    <div>
-                                        <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-                                        <span>Loss Time</span>
-                                        <span id="cs-loss-time">0</span>
-                                    </div>
-                                    <div>
-                                        <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block; margin-right: 5px;"></span>
-                                        <span>Load Time</span>
-                                        <span id="cs-load-time">0</span>
-                                    </div>
-                                </div>
-                                <div class="timeline-container">
-                                    <div class="timeline-track-wrapper">
-                                        <div id="timeline-track-cs" class="timeline-track">
-                                            <div id="timeline-progress-cs" class="timeline-progress"></div>
-                                        </div>
-                                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
-                                    </div>
-                                    <div class="timeline-hours"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
                 <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
                     <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
                         <div class="widget-title">Machine Efficiency</div>
@@ -317,7 +140,193 @@
                         </div>
                     </div>
                 </a>
-                           </div> <!-- ✅ PENUTUP right-column DI SINI -->
+            </div>
+           
+                   
+            <div class="right-column">
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/ProductionReport/index" class="card-link" target="production_report_tab" rel="noopener noreferrer">
+                <div id="assembly-achievement-card" class="widget-card" style="flex: 2;">
+                    <div class="widget-title"><span>Assembly Achievement</span></div>
+                    <div class="achievement-container">
+    <!-- ✅ KOTAK CU -->
+                            <!-- ✅ KOTAK CU -->
+                            <div class="achievement-chart-wrapper">
+                                <div class="line-title">CU</div>
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
+                                    <div class="chart-container">
+                                        <canvas id="chartCU"></canvas>
+                                        <div class="chart-text-center">
+                                            <div class="chart-label"></div>
+                                            <div id="chart-values-cu" class="chart-value"></div>
+                                        </div>
+                                        <div class="chart-text-start"></div>
+                                        <div id="chart-end-text-cu" class="chart-text-end" style="opacity: 0;">100</div>
+                                    </div>
+                                    <div class="legend-and-total">
+                                        <span class="legend-color-box" style="background-color: #28a745;"></span>
+                                        <span class="legend-key">Plan</span>
+                                        <span>: <span id="legend-plan-cu">0</span></span>
+
+                                        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
+                                        <span class="legend-key">Actual</span>
+                                        <span>: <span id="legend-actual-cu">0</span></span>
+
+                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+                                        <span class="legend-key">Speed</span>
+                                        <span>: <span id="legend-achievement-cu">0</span>%</span>
+
+                                        <span></span>
+                                        <span class="legend-key">Total Plan</span>
+                                        <span>: <span id="total-plan-display-cu" style="font-weight:bold;">2370</span></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ✅ KOTAK CS -->
+                            <!-- ✅ KOTAK CS -->
+                            <div class="achievement-chart-wrapper">
+                                <div class="line-title">CS</div>
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
+                                    <div class="chart-container">
+                                        <canvas id="chartCS"></canvas>
+                                        <div class="chart-text-center">
+                                            <div class="chart-label"></div>
+                                            <div id="chart-values-cs" class="chart-value"></div>
+                                        </div>
+                                        <div class="chart-text-start"></div>
+                                        <div id="chart-end-text-cs" class="chart-text-end" style="opacity: 0;">100</div>
+                                    </div>
+                                    <div class="legend-and-total">
+                                        <span class="legend-color-box" style="background-color: #28a745;"></span>
+                                        <span class="legend-key">Plan</span>
+                                        <span>: <span id="legend-plan-cs">0</span></span>
+
+                                        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
+                                        <span class="legend-key">Actual</span>
+                                        <span>: <span id="legend-actual-cs">0</span></span>
+
+                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
+                                        <span class="legend-key">Speed</span>
+                                        <span>: <span id="legend-achievement-cs">0</span>%</span>
+
+                                        <span></span>
+                                        <span class="legend-key">Total Plan</span>
+                                        <span>: <span id="total-plan-display-cs" style="font-weight:bold;">2115</span></span>
+                                    </div>
+                                </div>
+                            </div>
+    </div>
+                </div>
+                </a>
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
+                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
+                        <div class="widget-title">
+                            <span>Pass Through Ratio <span style="font-size:1rem;">(Quality Defect)</span></span>
+                        </div>
+    <div class="quality-defect-container">
+        <!-- ✅ KOTAK CU -->
+        <div class="quality-chart-wrapper">
+            <div class="line-title">CU</div>
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
+            <div class="pie-chart-container">
+                <canvas id="quality-pie-cu"></canvas>
+                <div class="pie-center-text">
+                    <div class="pie-percent"><span id="quality-percent-cu">0</span>%</div>
+                    <div class="pie-defects">(<span id="defect-count-cu">0</span> defects)</div>
+                </div>
+            </div>
+            <!-- ✅ LEGEND DI DALAM KOTAK CU -->
+            <div class="quality-legend-inline">
+                <div id="quality-legend-items-cu" class="legend-items-inline">
+                    <!-- Auto-generated dari JS -->
+                </div>
+                                    </div>
+            </div>
+        </div>
+
+        <!-- ✅ KOTAK CS -->
+        <div class="quality-chart-wrapper">
+            <div class="line-title">CS</div>
+                                    <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
+            <div class="pie-chart-container">
+                <canvas id="quality-pie-cs"></canvas>
+                <div class="pie-center-text">
+                    <div class="pie-percent"><span id="quality-percent-cs">0</span>%</div>
+                    <div class="pie-defects">(<span id="defect-count-cs">0</span> defects)</div>
+                </div>
+            </div>
+            <!-- ✅ LEGEND DI DALAM KOTAK CS -->
+            <div class="quality-legend-inline">
+                <div id="quality-legend-items-cs" class="legend-items-inline">
+                    <!-- Auto-generated dari JS -->
+                </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+                </a>
+                <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
+    <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
+        <div class="widget-title">
+            <span>Assembly Loss Time</span>
+        </div>
+        <div class="loss-time-container">
+            <div class="loss-line-wrapper">
+                <b class="loss-line-title">CU</b>
+                                <div class="loss-summary">
+                                    <span></span>
+                                    <span>Working Time</span>
+                                    <span id="cu-working-time">0</span>
+
+                                    <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span>Loss Time</span>
+                                    <span id="cu-loss-time">0</span>
+
+                                    <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span>Load Time</span>
+                                    <span id="cu-load-time">0</span>
+                                </div>
+                <div class="timeline-container">
+                    <div class="timeline-track-wrapper">
+                        <div id="timeline-track-cu" class="timeline-track">
+                            <div id="timeline-progress-cu" class="timeline-progress"></div>
+                        </div>
+                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                    </div>
+                    <div class="timeline-hours"></div>
+                </div>
+            </div>
+            <div class="loss-line-wrapper">
+                <b class="loss-line-title">CS</b>
+                                <div class="loss-summary">
+                                    <span></span>
+                                    <span>Working Time</span>
+                                    <span id="cs-working-time">0</span>
+
+                                    <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span>Loss Time</span>
+                                    <span id="cs-loss-time">0</span>
+
+                                    <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span>Load Time</span>
+                                    <span id="cs-load-time">0</span>
+                                </div>
+                <div class="timeline-container">
+                    <div class="timeline-track-wrapper">
+                        <div id="timeline-track-cs" class="timeline-track">
+                            <div id="timeline-progress-cs" class="timeline-progress"></div>
+                        </div>
+                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                    </div>
+                    <div class="timeline-hours"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
+
+        </div> <!-- ✅ PENUTUP right-column DI SINI -->
 
             <!-- ✅ MACHINE EFFICIENCY DI LUAR right-column -->
 
@@ -1027,6 +1036,25 @@ function updateQualityLegend(labels, colors, lineType) {
             });
         }
 
+                // State zoom per line
+        const zoomState = { cu: 1, cs: 1 };
+
+        function setupTimelineZoom() {
+            ['cu', 'cs'].forEach(lineId => {
+                const track = document.getElementById(`timeline-track-${lineId}`);
+                if (!track) return;
+                track.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                        zoomState[lineId] = Math.max(0.2, zoomState[lineId] - 0.1);
+                    } else {
+                        zoomState[lineId] = Math.min(1, zoomState[lineId] + 0.1);
+                    }
+                    redrawTimeline(lineId);
+                }, { passive: false });
+            });
+        }
+
         function updateAssemblyTimeline(lineId, lossData) {
             const trackElement = document.getElementById(`timeline-track-${lineId}`);
             const progressElement = document.getElementById(`timeline-progress-${lineId}`);
@@ -1192,12 +1220,12 @@ document.getElementById('total-plan-display-cs').textContent = data.lineCS.daily
                 // Update CU Quality Pie Chart
 // Update CU Quality Pie Chart
 const cuDefectsByCategory = data.lineCU.defectsByCategory || [
-    {category: 'PREPARING', count: 5},
-    {category: 'GAS LEAK', count: 3},
-    {category: 'RUNNING', count: 8},
-    {category: 'INNER', count: 2},
-    {category: 'FINAL', count: 4},
-    {category: 'DETAIL', count: 1}
+    {category: 'Preparing', count: 5},
+    {category: 'Gas Leak', count: 3},
+    {category: 'Running', count: 8},
+    {category: 'Inner', count: 2},
+    {category: 'Final', count: 4},
+    {category: 'Detail', count: 1}
 ];
 
 if (!window.qualityPieCU) {
@@ -1387,7 +1415,7 @@ function setupEnergySlider() {
 
             fetchData();
             updateMachineEfficiency();
-            setInterval(() => {
+                    setInterval(() => {
                 fetchData();
                 updateMachineEfficiency();
             }, 5000);
