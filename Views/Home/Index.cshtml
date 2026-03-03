@@ -122,7 +122,7 @@
                 </div>
                 <a href="http://10.83.33.125:8080/oee/" class="card-link" target="machine_tab" rel="nooper noreferrer">
                     <div id="machine-efficiency-card" class="widget-card" style="flex: 4;">
-                        <div class="widget-title">Machine Efficiency</div>
+                        <div class="widget-title-left">Machine Efficiency</div>
                         <div class="machine-efficiency-table">
                             <table>
                                 <thead>
@@ -146,14 +146,14 @@
             <div class="right-column">
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/ProductionReport/index" class="card-link" target="production_report_tab" rel="noopener noreferrer">
                 <div id="assembly-achievement-card" class="widget-card" style="flex: 2;">
-                    <div class="widget-title"><span>Assembly Achievement</span></div>
-                    <div class="achievement-container">
+                        <div class="widget-title-left"><span>Assembly Achievement</span></div>
+                        <div class="achievement-container achievement-vertical">
     <!-- ✅ KOTAK CU -->
                             <!-- ✅ KOTAK CU -->
                             <div class="achievement-chart-wrapper">
-                                <div class="line-title">CU</div>
                                 <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
-                                    <div class="chart-container">
+                                    <div class="spedo-wrapper">
+                                        <div class="chart-container">
                                         <canvas id="chartCU"></canvas>
                                         <div class="chart-text-center">
                                             <div class="chart-label"></div>
@@ -162,22 +162,29 @@
                                         <div class="chart-text-start"></div>
                                         <div id="chart-end-text-cu" class="chart-text-end" style="opacity: 0;">100</div>
                                     </div>
+                                        <div class="line-badge">CU</div>
+                                    </div>
                                     <div class="legend-and-total">
-                                        <span class="legend-color-box" style="background-color: #28a745;"></span>
-                                        <span class="legend-key">Plan</span>
-                                        <span>: <span id="legend-plan-cu">0</span></span>
-
-                                        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
-                                        <span class="legend-key">Actual</span>
-                                        <span>: <span id="legend-actual-cu">0</span></span>
-
-                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-key">Speed</span>
-                                        <span>: <span id="legend-achievement-cu">0</span>%</span>
-
-                                        <span></span>
-                                        <span class="legend-key">Total Plan</span>
-                                        <span>: <span id="total-plan-display-cu" style="font-weight:bold;">2370</span></span>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #6B3FA0;"></span>
+                                            <span class="legend-key">Plan</span>
+                                            <span>: <span id="legend-plan-cu">0</span></span>
+                                        </div>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #1A6B6B;"></span>
+                                            <span class="legend-key">Actual</span>
+                                            <span>: <span id="legend-actual-cu">0</span></span>
+                                        </div>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #7B9FD4;"></span>
+                                            <span class="legend-key">Total Plan</span>
+                                            <span>: <span id="total-plan-display-cu" style="font-weight:bold;">2370</span></span>
+                                        </div>
+                                        <div class="legend-row">
+                                            <span></span>
+                                            <span class="legend-key">Speed</span>
+                                            <span>: <span id="legend-achievement-cu">0</span>%</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -185,9 +192,9 @@
                             <!-- ✅ KOTAK CS -->
                             <!-- ✅ KOTAK CS -->
                             <div class="achievement-chart-wrapper">
-                                <div class="line-title">CS</div>
                                 <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
-                                    <div class="chart-container">
+                                    <div class="spedo-wrapper">
+                                        <div class="chart-container">
                                         <canvas id="chartCS"></canvas>
                                         <div class="chart-text-center">
                                             <div class="chart-label"></div>
@@ -196,22 +203,29 @@
                                         <div class="chart-text-start"></div>
                                         <div id="chart-end-text-cs" class="chart-text-end" style="opacity: 0;">100</div>
                                     </div>
+                                        <div class="line-badge">CS</div>
+                                    </div>
                                     <div class="legend-and-total">
-                                        <span class="legend-color-box" style="background-color: #28a745;"></span>
-                                        <span class="legend-key">Plan</span>
-                                        <span>: <span id="legend-plan-cs">0</span></span>
-
-                                        <span class="legend-color-box" style="background-color: #9B59B6;"></span>
-                                        <span class="legend-key">Actual</span>
-                                        <span>: <span id="legend-actual-cs">0</span></span>
-
-                                        <span class="legend-color-box" style="background-color: #FFA500;"></span>
-                                        <span class="legend-key">Speed</span>
-                                        <span>: <span id="legend-achievement-cs">0</span>%</span>
-
-                                        <span></span>
-                                        <span class="legend-key">Total Plan</span>
-                                        <span>: <span id="total-plan-display-cs" style="font-weight:bold;">2115</span></span>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #6B3FA0;"></span>
+                                            <span class="legend-key">Plan</span>
+                                            <span>: <span id="legend-plan-cs">0</span></span>
+                                        </div>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #1A6B6B;"></span>
+                                            <span class="legend-key">Actual</span>
+                                            <span>: <span id="legend-actual-cs">0</span></span>
+                                        </div>
+                                        <div class="legend-row bordered">
+                                            <span class="legend-color-box" style="background-color: #7B9FD4;"></span>
+                                            <span class="legend-key">Total Plan</span>
+                                            <span>: <span id="total-plan-display-cs" style="font-weight:bold;">2115</span></span>
+                                        </div>
+                                        <div class="legend-row">
+                                            <span></span>
+                                            <span class="legend-key">Speed</span>
+                                            <span>: <span id="legend-achievement-cs">0</span>%</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -219,109 +233,97 @@
                 </div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/Quality/index" class="card-link" target="quality_tab" rel="nooper noreferrer">
-                <div id="quality-defect-card" class="widget-card" style="flex: 2;">
-                        <div class="widget-title">
+                    <div id="quality-defect-card" class="widget-card" style="flex: 2;">
+                        <div class="widget-title-left">
                             <span>Pass Through Ratio <span style="font-size:1rem;">(Quality Defect)</span></span>
                         </div>
-    <div class="quality-defect-container">
-        <!-- ✅ KOTAK CU -->
-        <div class="quality-chart-wrapper">
-            <div class="line-title">CU</div>
-                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
-            <div class="pie-chart-container">
-                <canvas id="quality-pie-cu"></canvas>
-                <div class="pie-center-text">
-                    <div class="pie-percent"><span id="quality-percent-cu">0</span>%</div>
-                    <div class="pie-defects">(<span id="defect-count-cu">0</span> defects)</div>
-                </div>
-            </div>
-            <!-- ✅ LEGEND DI DALAM KOTAK CU -->
-            <div class="quality-legend-inline">
-                <div id="quality-legend-items-cu" class="legend-items-inline">
-                    <!-- Auto-generated dari JS -->
-                </div>
-                                    </div>
-            </div>
-        </div>
-
-        <!-- ✅ KOTAK CS -->
-        <div class="quality-chart-wrapper">
-            <div class="line-title">CS</div>
-                                    <div style="display:flex; flex-direction:row; align-items:center; gap:10px;">
-            <div class="pie-chart-container">
-                <canvas id="quality-pie-cs"></canvas>
-                <div class="pie-center-text">
-                    <div class="pie-percent"><span id="quality-percent-cs">0</span>%</div>
-                    <div class="pie-defects">(<span id="defect-count-cs">0</span> defects)</div>
-                </div>
-            </div>
-            <!-- ✅ LEGEND DI DALAM KOTAK CS -->
-            <div class="quality-legend-inline">
-                <div id="quality-legend-items-cs" class="legend-items-inline">
-                    <!-- Auto-generated dari JS -->
-                </div>
-                                    </div>
-            </div>
-        </div>
-    </div>
-</div>
+                        <div class="quality-defect-container">
+                            <!-- CU -->
+                            <div class="quality-chart-wrapper">
+                                <div style="display:flex; flex-direction:row; align-items:flex-start; gap:8px; margin-bottom:6px;">
+                                    <b class="loss-line-badge">CU</b>
+                                    <span style="font-size:0.75rem; color:#cbd5e1; align-self:center;">
+                                        <span id="quality-percent-cu">0</span>%
+                                        (<span id="defect-count-cu">0</span> defects)
+                                    </span>
+                                </div>
+                                <div id="defect-bar-cu" class="defect-bar-container"></div>
+                            </div>
+                            <!-- CS -->
+                            <div class="quality-chart-wrapper">
+                                <div style="display:flex; flex-direction:row; align-items:flex-start; gap:8px; margin-bottom:6px;">
+                                    <b class="loss-line-badge">CS</b>
+                                    <span style="font-size:0.75rem; color:#cbd5e1; align-self:center;">
+                                        <span id="quality-percent-cs">0</span>%
+                                        (<span id="defect-count-cs">0</span> defects)
+                                    </span>
+                                </div>
+                                <div id="defect-bar-cs" class="defect-bar-container"></div>
+                            </div>
+                        </div>
+                    </div>
                 </a>
                 <a href="http://10.83.33.103:8001/ProductionMonitoring/LossTimeReport/index" class="card-link" target="losstime_tab" rel="nooper noreferrer">
     <div id="assembly-loss-time-card" class="widget-card" style="flex: 2;">
-        <div class="widget-title">
+        <div class="widget-title-left">
             <span>Assembly Loss Time</span>
         </div>
         <div class="loss-time-container">
-            <div class="loss-line-wrapper">
-                <b class="loss-line-title">CU</b>
+                            <!-- CU -->
+                            <div class="loss-line-wrapper">
+                                <b class="loss-line-badge">CU</b>
+                                <div class="timeline-container">
+                                    <div class="timeline-track-wrapper">
+                                        <div id="timeline-track-cu" class="timeline-track">
+                                            <div id="timeline-progress-cu" class="timeline-progress"></div>
+                                        </div>
+                                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                                    </div>
+                                    <div class="timeline-hours"></div>
+                                </div>
                                 <div class="loss-summary">
-                                    <span></span>
-                                    <span>Working Time</span>
-                                    <span id="cu-working-time">0</span>
-
-                                    <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span class="legend-color-box" style="background-color: #d90429; width:12px; height:12px; display:inline-block;"></span>
                                     <span>Loss Time</span>
                                     <span id="cu-loss-time">0</span>
 
-                                    <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span class="legend-color-box" style="background-color: #4F86F3; width:12px; height:12px; display:inline-block;"></span>
                                     <span>Load Time</span>
                                     <span id="cu-load-time">0</span>
-                                </div>
-                <div class="timeline-container">
-                    <div class="timeline-track-wrapper">
-                        <div id="timeline-track-cu" class="timeline-track">
-                            <div id="timeline-progress-cu" class="timeline-progress"></div>
-                        </div>
-                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
-                    </div>
-                    <div class="timeline-hours"></div>
-                </div>
-            </div>
-            <div class="loss-line-wrapper">
-                <b class="loss-line-title">CS</b>
-                                <div class="loss-summary">
-                                    <span></span>
-                                    <span>Working Time</span>
-                                    <span id="cs-working-time">0</span>
 
-                                    <span class="legend-color-box" style="background-color: #d90429; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span class="legend-color-box" style="width:12px; height:12px; display:inline-block; visibility:hidden;"></span>
+                                    <span>Working Time</span>
+                                    <span id="cu-working-time">0</span>
+                                </div>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.3); margin: 4px 8px;" />
+
+                            <!-- CS -->
+                            <div class="loss-line-wrapper">
+                                <b class="loss-line-badge">CS</b>
+                                <div class="timeline-container">
+                                    <div class="timeline-track-wrapper">
+                                        <div id="timeline-track-cs" class="timeline-track">
+                                            <div id="timeline-progress-cs" class="timeline-progress"></div>
+                                        </div>
+                                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                                    </div>
+                                    <div class="timeline-hours"></div>
+                                </div>
+                                <div class="loss-summary">
+                                    <span class="legend-color-box" style="background-color: #d90429; width:12px; height:12px; display:inline-block;"></span>
                                     <span>Loss Time</span>
                                     <span id="cs-loss-time">0</span>
 
-                                    <span class="legend-color-box" style="background-color: #4F86F3; width: 12px; height: 12px; display: inline-block;"></span>
+                                    <span class="legend-color-box" style="background-color: #4F86F3; width:12px; height:12px; display:inline-block;"></span>
                                     <span>Load Time</span>
                                     <span id="cs-load-time">0</span>
+
+                                    <span class="legend-color-box" style="width:12px; height:12px; display:inline-block; visibility:hidden;"></span>
+                                    <span>Working Time</span>
+                                    <span id="cs-working-time">0</span>
                                 </div>
-                <div class="timeline-container">
-                    <div class="timeline-track-wrapper">
-                        <div id="timeline-track-cs" class="timeline-track">
-                            <div id="timeline-progress-cs" class="timeline-progress"></div>
-                        </div>
-                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
-                    </div>
-                    <div class="timeline-hours"></div>
-                </div>
-            </div>
+                            </div>
         </div>
     </div>
 </a>
@@ -626,6 +628,12 @@ function drawSolidArc(ctx, centerX, centerY, radius, percentage, color, lineWidt
     }
 }
 
+        function getSpeedColor(percentage) {
+            if (percentage >= 85) return '#28a745';
+            else if (percentage >= 80) return '#ffc107';
+            else return '#d90429';
+        }
+
 function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
     // ✅ Tentukan maksimal harian
     const maxDaily = (canvasId === 'chartCU') ? 2370 : 2115;
@@ -700,11 +708,11 @@ function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
     ctx.stroke();
 
     // Bar luar max 100%
-    drawSolidArc(ctx, centerX, centerY, radiusOuter, cappedOuterPercentage, '#FFA500', 15);
+            drawSolidArc(ctx, centerX, centerY, radiusOuter, cappedOuterPercentage, '#7B9FD4', 15);
 
     // Bar tengah sampai actual, Bar dalam sampai plan
-    drawSolidArc(ctx, centerX, centerY, radiusMiddle, cappedActualBar, '#9B59B6', 12);
-    drawSolidArc(ctx, centerX, centerY, radiusInner, cappedPlanBar, '#28a745', 10);
+            drawSolidArc(ctx, centerX, centerY, radiusMiddle, cappedActualBar, '#1A6B6B', 12);
+        drawSolidArc(ctx, centerX, centerY, radiusInner, cappedPlanBar, '#6B3FA0', 10);
 
     drawTickMarks(ctx, centerX, centerY, radiusOuter);
     drawNumbers(ctx, centerX, centerY, radiusOuter);
@@ -725,6 +733,9 @@ function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
         document.getElementById(`legend-plan-${lineId}`).textContent = dailyPlan;
         const achievementPct = dailyPlan > 0 ? ((actual / dailyPlan) * 100).toFixed(0) : 0;
         document.getElementById(`legend-achievement-${lineId}`).textContent = achievementPct;
+
+                const speedBox = document.getElementById(`speed-color-box-${lineId}`);
+        if (speedBox) speedBox.style.backgroundColor = getSpeedColor(parseFloat(achievementPct));
 
 // --- TAMBAHKAN BARIS INI ---
 document.getElementById(`total-plan-display-${lineId}`).textContent = maxDaily;
@@ -891,85 +902,25 @@ function updateNeedle(canvasId, percentage) {
 
     console.log(`Needle updated for ${canvasId}: ${percentage}% -> ${angle}deg`);
 }
-function createOrUpdatePieChart(canvasId, chartInstance, defectsByCategory, lineType) {
-    const labels = defectsByCategory.map(d => d.category);
-    const dataValues = defectsByCategory.map(d => d.count);
-    const backgroundColors = defectsByCategory.map((_, index) => colorPalette[index % colorPalette.length]);
-
-    const data = {
-        labels: labels,
-        datasets: [{
-            data: dataValues,
-            backgroundColor: backgroundColors,
-            borderColor: '#14223D',
-            borderWidth: 1
-        }]
-    };
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: true,
-        cutout: '50%', /* ✅ Ubah dari 75% */
-        plugins: {
-            legend: { display: false },
-            tooltip: {
-                enabled: true,
-                callbacks: {
-                    label: function(context) {
-                        const label = context.label || '';
-                        const value = context.parsed || 0;
-                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                        const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                        return `${label}: ${value} (${percentage}%)`;
-                    }
-                }
-            }
+        function renderDefectBar(containerId, defectsByCategory) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const maxVal = Math.max(...defectsByCategory.map(d => d.count), 1);
+            container.innerHTML = '';
+            defectsByCategory.forEach(d => {
+                const pct = (d.count / maxVal) * 100;
+                const row = document.createElement('div');
+                row.className = 'defect-bar-row';
+                row.innerHTML = `
+                    <div class="defect-bar-label">${d.category}</div>
+                    <div class="defect-bar-track">
+                        <div class="defect-bar-fill" style="width:${pct}%"></div>
+                        <span class="defect-bar-value">${d.count}</span>
+                    </div>
+                `;
+                container.appendChild(row);
+            });
         }
-    };
-
-    const ctx = document.getElementById(canvasId).getContext('2d');
-
-    if (chartInstance) {
-        chartInstance.data.labels = labels;
-        chartInstance.data.datasets[0].data = dataValues;
-        chartInstance.data.datasets[0].backgroundColor = backgroundColors;
-        chartInstance.update();
-
-        // ✅ Update legend untuk line ini
-        updateQualityLegend(labels, backgroundColors, lineType);
-
-        return chartInstance;
-    } else {
-        const newChart = new Chart(ctx, { type: 'doughnut', data: data, options: options });
-
-        // ✅ Update legend untuk line ini
-        updateQualityLegend(labels, backgroundColors, lineType);
-
-        return newChart;
-    }
-}
-
-// ✅ TAMBAHKAN FUNGSI BARU INI (TEPAT SETELAH createOrUpdatePieChart)
-// ✅ GANTI FUNGSI INI - Legend gabungin semua kategori dari CU & CS
-// ✅ GANTI FUNGSI INI - Legend terpisah untuk CU & CS
-function updateQualityLegend(labels, colors, lineType) {
-    const legendContainerId = lineType === 'CU' ? 'quality-legend-items-cu' : 'quality-legend-items-cs';
-    const legendContainer = document.getElementById(legendContainerId);
-    if (!legendContainer) return;
-
-    // ✅ Clear dan rebuild legend
-    legendContainer.innerHTML = '';
-
-    labels.forEach((label, index) => {
-        const item = document.createElement('div');
-        item.className = 'legend-item';
-        item.innerHTML = `
-            <span class="legend-color-box" style="background-color: ${colors[index]};"></span>
-            <span class="legend-label">${label}</span>
-        `;
-        legendContainer.appendChild(item);
-    });
-}
  
         function setDate() {
             const dateElement = document.getElementById('current-date');
@@ -1110,6 +1061,13 @@ function updateQualityLegend(labels, colors, lineType) {
             progressElement.style.width = `${progressPercent}%`;
         }
 
+                function getRowClass(oee, oratio, ability, quality) {
+            const minVal = Math.min(parseFloat(oee), oratio, ability, quality);
+            if (minVal < 80) return 'row-red';
+            if (minVal < 85) return 'row-yellow';
+            return 'row-green';
+        }
+
         async function updateMachineEfficiency() {
             const apiUrl = '/Home/GetMachineEfficiencyData';
             const machineMapping = {
@@ -1173,9 +1131,17 @@ function updateQualityLegend(labels, colors, lineType) {
                         }
                     }
 
-                    const row = document.createElement('tr');
-                    row.id = `row-${prefix}`;
-                    row.innerHTML = `<td>${index}</td><td>${machineName}</td><td>${oee}%</td><td><div class="bar"><div class="fill" style="width: ${operatingRatioPercent}%;"></div><span class="quality-text">${operatingRatioPercent.toFixed(0)}%</span></div></td><td><div class="bar"><div class="fill" style="width: ${abilityPercent}%;"></div><span class="quality-text">${abilityPercent.toFixed(0)}%</span></div></td><td><div class="bar"><div class="fill" style="width: ${qualityPercent}%;"></div><span class="quality-text">${qualityPercent.toFixed(0)}%</span></div></td>`;
+                            const row = document.createElement('tr');
+                            row.id = `row-${prefix}`;
+                            row.className = getRowClass(oee, operatingRatioPercent, abilityPercent, qualityPercent);
+                            row.innerHTML = `
+                                <td>${index}</td>
+                                <td><span class="status-dot"></span>${machineName}</td>
+                                <td>${oee}</td>
+                                <td>${operatingRatioPercent.toFixed(0)}</td>
+                                <td>${abilityPercent.toFixed(0)}</td>
+                                <td>${qualityPercent.toFixed(0)}</td>
+                            `;
                     tableBody.appendChild(row);
                     index++;
                 }
@@ -1207,55 +1173,41 @@ function updateQualityLegend(labels, colors, lineType) {
                // ✅ CU - Pakai displayPlan untuk CHART & TEXT
 const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
 chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU);
-document.getElementById('chart-values-cu').textContent = `${data.lineCU.totalActual}/${displayPlanCU}`; 
-document.getElementById('chart-end-text-cu').textContent = ''; // ✅ KOSONGKAN
-document.getElementById('total-plan-display-cu').textContent = data.lineCU.dailyPlan; // ✅ TAMBAH INI
+
+
 
 // ✅ CS - Pakai displayPlan untuk CHART & TEXT
 const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
 chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, displayPlanCS);
-document.getElementById('chart-values-cs').textContent = `${data.lineCS.totalActual}/${displayPlanCS}`;
-document.getElementById('chart-end-text-cs').textContent = ''; // ✅ KOSONGKAN
-document.getElementById('total-plan-display-cs').textContent = data.lineCS.dailyPlan; // ✅ TAMBAH INI
+
+
                 // Update CU Quality Pie Chart
 // Update CU Quality Pie Chart
-const cuDefectsByCategory = data.lineCU.defectsByCategory || [
-    {category: 'Preparing', count: 5},
-    {category: 'Gas Leak', count: 3},
-    {category: 'Running', count: 8},
-    {category: 'Inner', count: 2},
-    {category: 'Final', count: 4},
-    {category: 'Detail', count: 1}
-];
+        const cuDefectsByCategory = data.lineCU.defectsByCategory || [
+            {category: 'Preparing', count: 5},
+            {category: 'Gas Leak', count: 3},
+            {category: 'Running', count: 8},
+            {category: 'Inner', count: 2},
+            {category: 'Final', count: 4},
+            {category: 'Detail', count: 1}
+        ];
+        renderDefectBar('defect-bar-cu', cuDefectsByCategory);
+        const totalDefectsCU = cuDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
+        const qualityRateCU = data.lineCU.totalActual > 0 ? ((data.lineCU.totalActual - totalDefectsCU) / data.lineCU.totalActual * 100) : 100;
+        document.getElementById('quality-percent-cu').textContent = qualityRateCU.toFixed(0);
+        document.getElementById('defect-count-cu').textContent = totalDefectsCU;
 
-if (!window.qualityPieCU) {
-    window.qualityPieCU = createOrUpdatePieChart('quality-pie-cu', null, cuDefectsByCategory, 'CU'); // ✅ TAMBAH 'CU'
-} else {
-    window.qualityPieCU = createOrUpdatePieChart('quality-pie-cu', window.qualityPieCU, cuDefectsByCategory, 'CU'); // ✅ TAMBAH 'CU'
-}
-
-const totalDefectsCU = cuDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
-const qualityRateCU = data.lineCU.totalActual > 0 ? ((data.lineCU.totalActual - totalDefectsCU) / data.lineCU.totalActual * 100) : 100;
-document.getElementById('quality-percent-cu').textContent = qualityRateCU.toFixed(0);
-document.getElementById('defect-count-cu').textContent = totalDefectsCU;
-
-const csDefectsByCategory = data.lineCS.defectsByCategory || [
-    {category: 'Chassis', count: 4},
-    {category: 'Preparing', count: 6},
-    {category: 'Running', count: 7},
-    {category: 'Final', count: 3}
-];
-
-if (!window.qualityPieCS) {
-    window.qualityPieCS = createOrUpdatePieChart('quality-pie-cs', null, csDefectsByCategory, 'CS'); // ✅ TAMBAH 'CS'
-} else {
-    window.qualityPieCS = createOrUpdatePieChart('quality-pie-cs', window.qualityPieCS, csDefectsByCategory, 'CS'); // ✅ TAMBAH 'CS'
-}
-
-const totalDefectsCS = csDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
-const qualityRateCS = data.lineCS.totalActual > 0 ? ((data.lineCS.totalActual - totalDefectsCS) / data.lineCS.totalActual * 100) : 100;
-document.getElementById('quality-percent-cs').textContent = qualityRateCS.toFixed(0);
-document.getElementById('defect-count-cs').textContent = totalDefectsCS;
+        const csDefectsByCategory = data.lineCS.defectsByCategory || [
+            {category: 'Chassis', count: 4},
+            {category: 'Preparing', count: 6},
+            {category: 'Running', count: 7},
+            {category: 'Final', count: 3}
+        ];
+        renderDefectBar('defect-bar-cs', csDefectsByCategory);
+        const totalDefectsCS = csDefectsByCategory.reduce((sum, d) => sum + d.count, 0);
+        const qualityRateCS = data.lineCS.totalActual > 0 ? ((data.lineCS.totalActual - totalDefectsCS) / data.lineCS.totalActual * 100) : 100;
+        document.getElementById('quality-percent-cs').textContent = qualityRateCS.toFixed(0);
+        document.getElementById('defect-count-cs').textContent = totalDefectsCS;
 
 // ✅ HAPUS BAGIAN updateQualityLegend yang lama (baris 613-621)
 
