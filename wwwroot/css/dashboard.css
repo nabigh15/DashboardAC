@@ -114,11 +114,11 @@
 
         /* Achievement & Quality bagi rata sisa tinggi */
         .right-column > a:nth-child(1) { 
-            flex: 0 0 32% !important; /*atur tinggi assembly achievment*/
+            flex: 0 0 30% !important; /*atur tinggi assembly achievment*/
         }
 
         .right-column > a:nth-child(2) {
-            flex: 0 0 32% !important; /*atur tinggi pass throught ratio*/
+            flex: 0 0 34% !important; /*atur tinggi pass throught ratio*/
         }
 
         /* Semua widget card di right-column sama rata */
@@ -133,7 +133,7 @@
 .widget-card {
     background-color: #3D4360;
     border: 1px solid #525878;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 6px 14px;
     width: 100%;
     box-sizing: border-box;
@@ -142,7 +142,7 @@
 }
 
     .widget-card .widget-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #fff;
         margin-bottom: 10px;
         padding-bottom: 1px;
@@ -282,7 +282,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     border: none;
     border-radius: 0;
     padding: 8px 12px;
@@ -414,14 +414,15 @@
     overflow: hidden;
 }
 
-.loss-summary {
+.loss-summary {   /*loss time*/
     display: flex;
     flex-direction: column;
     gap: 0;
-    font-size: 1rem;
+    font-size: 0.8rem; /* ukuran font label (Loss Time, Load Time, dst) — kecilkan di sini */
     color: #fff;
     flex-shrink: 0;
-    min-width: 185px;
+    min-width: 155px; /* lebar kotak legend — perkecil untuk menghemat ruang */
+    margin-left: auto; /* dorong legend sejauh mungkin ke kanan */
 }
 
 .loss-summary-row {
@@ -433,10 +434,10 @@
     width: 100%;
 }
 
-    .loss-summary-row span:last-child {
+    .loss-summary-row span:last-child { /*Legen nya loss time yang jumlah*/
         margin-left: auto;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 0.85rem;
     }
 
 .timeline-container {
@@ -544,7 +545,7 @@
     max-width: 150px;
     height: auto;
     max-height: 40px;
-    padding: 6px 10px;
+    padding: 2px 2px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -699,6 +700,14 @@
 #cond {
     top: 54%;
     left: 70%;
+}
+
+/* ── Arah segitiga per balloon ── */
+#machine-fix-36::after {
+    top: 100% !important;
+    bottom: auto !important;
+    border-top: 18px solid rgba(255,255,255,0.25) !important;
+    border-bottom: none !important;
 }
 
 .alert-balloon {
@@ -1138,7 +1147,7 @@ a.card-link {
     flex-direction: column;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.9);
-    gap: 10px;
+    gap: 7px;
 }
 
 .legend-row {
@@ -1200,7 +1209,7 @@ a.card-link {
 
     .legend-row.total-plan-row .legend-value {
         color: #ffffff !important;
-        font-size: 1.6rem !important;
+        font-size: 1.1rem !important;
         font-weight: bold !important;
         letter-spacing: 0.5px;
     }
@@ -1213,7 +1222,7 @@ a.card-link {
 .line-badge {
     display: inline-block;
     margin-top: -55px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 6px;
     padding: 4px 14px;
@@ -1252,7 +1261,7 @@ a.card-link {
     align-items: center;
     justify-content: center;
     min-width: 42px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 6px;
     padding: 4px 14px;
@@ -1287,13 +1296,14 @@ tr.row-green, tr.row-yellow, tr.row-red {
 .defect-bar-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
     padding: 4px 0;
     flex: 1 1 0;
     min-height: 0;
     width: 100%;
     position: relative;
     overflow: hidden;
+    justify-content: space-evenly;
 }
 
 .defect-bar-row {
@@ -1302,6 +1312,8 @@ tr.row-green, tr.row-yellow, tr.row-red {
     align-items: center;
     gap: 8px;
     width: 100%;
+    flex: 1 1 0;
+    min-height: 0;
 }
 
 .defect-bar-label {
@@ -1319,9 +1331,11 @@ tr.row-green, tr.row-yellow, tr.row-red {
     min-width: 0;
     background: rgba(255,255,255,0.1);
     border-radius: 3px;
-    height: 22px;
+    height: 60%;
+    max-height: 28px;
     position: relative;
     overflow: visible;
+    align-self: center;
 }
 
 .defect-bar-fill {
@@ -1389,4 +1403,19 @@ tr.row-green, tr.row-yellow, tr.row-red {
 
 #assembly-loss-time-card {
     overflow: hidden;
+}
+
+.quality-line-badge {
+    display: block; /* melebar penuh mengisi lebar card */
+    width: 100%; /* badge selebar card */
+    text-align: center; /* tulisan CU/CS di tengah */
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 6px; /* jarak antara badge dan bar pertama */
+    box-sizing: border-box;
 }
