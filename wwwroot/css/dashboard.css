@@ -23,16 +23,17 @@
     justify-content: space-between;
     align-items: center;
     background-color: #2E3250;
-    padding: 8px 20px;
+    padding: 25px 20px;     /*tinggi header*/
     position: relative;
     border-bottom: 2px solid rgba(255,255,255,0.2);
     box-sizing: border-box;
 }
 
-    .main-header .logo {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #fff;
+    .main-header .logo { /*logo panasonic*/
+        height: 24px;  /*ukuran*/
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
     }
 
     .main-header .title {
@@ -106,6 +107,20 @@
         text-decoration: none;
     }
 
+        /* Loss Time card - samakan tinggi dengan Machine Efficiency */
+        .right-column > a:nth-child(3) {
+            flex: 0 0 33% !important; /*atur tinggi loss time*/
+        }
+
+        /* Achievement & Quality bagi rata sisa tinggi */
+        .right-column > a:nth-child(1) { 
+            flex: 0 0 32% !important; /*atur tinggi assembly achievment*/
+        }
+
+        .right-column > a:nth-child(2) {
+            flex: 0 0 32% !important; /*atur tinggi pass throught ratio*/
+        }
+
         /* Semua widget card di right-column sama rata */
         .right-column > a > .widget-card,
         .right-column > .widget-card {
@@ -117,10 +132,10 @@
 
 .widget-card {
     background-color: #3D4360;
-    border: 1px solid #525878; 
+    border: 1px solid #525878;
     border-radius: 8px;
     padding: 6px 14px;
-    width: 100 %;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -159,16 +174,13 @@
     margin-top: 0px;
     align-items: stretch;
     padding-left: 0px;
-    overflow: hidden;
+    padding-bottom: 35px;
+    overflow: visible;
 }
 
 .achievement-chart-wrapper {
     flex: 1 1 0 !important;
     max-width: 50% !important;
-}
-
-.achievement-chart-wrapper {
-    flex: 1 1 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -179,7 +191,7 @@
     position: relative;
     gap: 0px !important;
     min-height: 0;
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
 }
 
@@ -187,7 +199,7 @@
     position: relative;
     width: 100%;
     flex: 1 1 0;
-    min-height: 120px;
+    min-height: 0;
     max-width: none;
     overflow: hidden;
     margin-right: 0;
@@ -542,7 +554,7 @@
 }
 
 .balloon-title {
-    font-size: 0.45rem;
+    font-size: 0.6rem;
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
@@ -736,12 +748,13 @@
 }
 
 .machine-efficiency-table {
-    max-height: 230px;
+    flex: 1 1 0;
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: rgba(255,255,255,0.2) transparent;
     width: 100%;
+    min-height: 0;
 }
 
     .machine-efficiency-table table {
@@ -773,14 +786,15 @@
         white-space: nowrap;
     }
 
+        /* Sembunyikan kolom nomor urut */
         .machine-efficiency-table th:nth-child(1),
         .machine-efficiency-table td:nth-child(1) {
-            width: 6% !important;
+            display: none !important;
         }
 
         .machine-efficiency-table th:nth-child(2),
-        .machine-efficiency-table td:nth-child(2) {
-            width: 30% !important;
+        .machine-efficiency-table td:nth-child(2) { 
+            width: 18% !important;  /*jarak tabble machine name*/
             text-align: left !important;
         }
 
@@ -1140,8 +1154,8 @@ a.card-link {
     }
 
     .legend-row .legend-dot {
-        width: 14px;
-        height: 14px;
+        width: 14px !important;
+        height: 14px !important;
         border-radius: 50%;
         display: inline-block;
         flex-shrink: 0;
@@ -1186,8 +1200,9 @@ a.card-link {
 
     .legend-row.total-plan-row .legend-value {
         color: #ffffff !important;
-        font-size: 1.4rem !important;
+        font-size: 1.6rem !important;
         font-weight: bold !important;
+        letter-spacing: 0.5px;
     }
 
 #total-plan-display-cu,
@@ -1197,12 +1212,12 @@ a.card-link {
 
 .line-badge {
     display: inline-block;
-    margin-top: -15px;
+    margin-top: -55px;
     background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
-    padding: 2px 12px;
-    font-size: 0.9rem;
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 1.3rem;
     font-weight: bold;
     color: #fff;
     text-align: center;
@@ -1221,7 +1236,7 @@ a.card-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    flex: 1 1 0;
     min-width: 0;
     height: 100%;
 }
@@ -1229,7 +1244,7 @@ a.card-link {
     .spedo-wrapper .line-badge {
         position: relative;
         left: 0;
-        margin-top: 4px;
+        margin-top: -70px;
     }
 
 .loss-line-badge {
@@ -1335,32 +1350,41 @@ tr.row-green, tr.row-yellow, tr.row-red {
     border-radius: 8px;
     position: relative;
     overflow: hidden;
-    flex: 2 1 0 !important;
+    flex: 0 0 65% !important; /*untuk atur tingginya peta*/
     min-height: 0 !important;
     container-type: size;
 }
 
-    .map-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-        display: block;
-    }
+/* Left column <a> wrapper untuk Machine Efficiency */
+.left-column > a {
+    flex: 0 0 33% !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+}
 
-    .map-card svg#line-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-    }
+.map-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.map-card svg#line-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
 
 #machine-efficiency-card {
     flex: 1 1 0 !important;
-    flex-shrink: 1 !important;
-    flex-grow: 1 !important;
-    flex-basis: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
 }
 
 #assembly-loss-time-card {
