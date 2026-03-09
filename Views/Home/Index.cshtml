@@ -14,7 +14,7 @@
     <div class="main-container">
         <header class="main-header">
             <img src="~/assets/panasonic_logo.png" alt="Panasonic" class="logo" />
-            <div class="title">Production Management System</div>
+            <img src="~/assets/PROMS_Logo.png" alt="PROMS" class="title-logo" />
             <div id="current-date" class="date"></div>
         </header>
         <main class="main-content">
@@ -484,10 +484,11 @@
                 const balloon = document.getElementById(balloonId);
                 if (balloon) {
                     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    const startX = balloon.offsetLeft + balloon.offsetWidth / 2;
-                    const startY = balloon.classList.contains('tacked-from-top')
-                        ? balloon.offsetTop
-                        : balloon.offsetTop + balloon.offsetHeight;
+                    // SESUDAH - pakai getBoundingClientRect untuk akurasi
+const containerRect = container.getBoundingClientRect();
+const balloonRect = balloon.getBoundingClientRect();
+const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
+        const startY = balloonRect.top - containerRect.top + balloonRect.height / 2;
                             const target = arrowTargets[balloonId] || machineCoordinates[balloonId];
         const endX = (target.x / 100) * containerWidth;
         const endY = (target.y / 100) * containerHeight;

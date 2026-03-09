@@ -133,7 +133,7 @@
 .widget-card {
     background-color: #3D4360;
     border: 1px solid #525878;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 6px 14px;
     width: 100%;
     box-sizing: border-box;
@@ -142,7 +142,7 @@
 }
 
     .widget-card .widget-title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         color: #fff;
         margin-bottom: 10px;
         padding-bottom: 1px;
@@ -1223,7 +1223,7 @@ a.card-link {
     display: inline-block;
     margin-top: -55px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 6px;
     padding: 4px 14px;
     font-size: 1.3rem;
@@ -1262,7 +1262,7 @@ a.card-link {
     justify-content: center;
     min-width: 42px;
     background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 6px;
     padding: 4px 14px;
     font-size: 1.3rem;
@@ -1418,4 +1418,14 @@ tr.row-green, tr.row-yellow, tr.row-red {
     color: #fff;
     margin-bottom: 6px; /* jarak antara badge dan bar pertama */
     box-sizing: border-box;
+}
+
+.title-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
