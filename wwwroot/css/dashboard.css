@@ -1429,3 +1429,211 @@ tr.row-green, tr.row-yellow, tr.row-red {
     left: 50%;
     transform: translateX(-50%);
 }
+
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+    background-color: #b8cdd1;
+    color: #1a1a2e;
+}
+
+    body.light-mode .main-container {
+        background-image: url('/assets/BG_Light.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Header — transparan supaya ikut warna BG */
+    body.light-mode .main-header {
+        background-color: rgba(180, 210, 215, 0.85);
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+    }
+
+        body.light-mode .main-header .date {
+            color: #1a1a2e;
+        }
+
+    body.light-mode .title-logo {
+        filter: brightness(0) saturate(100%) invert(13%) sepia(50%) saturate(800%) hue-rotate(200deg);
+    }
+
+    body.light-mode .logo {
+        filter: brightness(0);
+    }
+
+    body.light-mode #theme-toggle {
+        border-color: rgba(30,60,60,0.5);
+        color: #1a1a2e;
+    }
+
+    /* Widget card — hijau telor asin */
+    body.light-mode .widget-card {
+        background-color: rgba(178, 220, 215, 0.75);
+        border: 1px solid rgba(120, 180, 175, 0.8);
+        backdrop-filter: blur(8px);
+    }
+
+    /* Semua judul card */
+    body.light-mode .widget-title-left,
+    body.light-mode .widget-title-left span {
+        color: #1a1a2e;
+    }
+
+    /* Machine efficiency table */
+    body.light-mode .machine-efficiency-table table {
+        color: #1a1a2e;
+    }
+
+    body.light-mode .machine-efficiency-table th {
+        background-color: rgba(150, 200, 195, 0.9);
+        color: #1a1a2e;
+        border-bottom: 2px solid #2a5050;
+    }
+
+    body.light-mode .machine-efficiency-table td {
+        color: #1a1a2e;
+    }
+
+        body.light-mode .machine-efficiency-table td:nth-child(2) {
+            color: #1a1a2e;
+        }
+
+    body.light-mode .machine-efficiency-table tbody tr:nth-child(odd) {
+        background-color: rgba(0,80,70,0.06);
+    }
+
+    body.light-mode .machine-efficiency-table tbody tr:nth-child(even) {
+        background-color: rgba(0,80,70,0.02);
+    }
+
+    /* Map card */
+    body.light-mode .map-card {
+        border: 1px solid rgba(100,160,155,0.6);
+    }
+
+    /* Timeline */
+    body.light-mode .timeline-track {
+        background-color: rgba(79, 134, 243, 0.15);
+    }
+
+    body.light-mode .timeline-hours span {
+        color: #1a1a2e;
+    }
+
+    /* Loss summary */
+    body.light-mode .loss-summary-row {
+        border-bottom: 1px solid rgba(0,0,0,0.15);
+    }
+
+        body.light-mode .loss-summary-row span {
+            color: #1a1a2e;
+        }
+
+    /* Badge CU/CS */
+    body.light-mode .loss-line-badge,
+    body.light-mode .line-badge {
+        border-color: rgba(20,60,60,0.7);
+        color: #1a1a2e;
+    }
+
+    body.light-mode .quality-line-badge {
+        border-color: rgba(20,60,60,0.7);
+        color: #1a1a2e;
+    }
+
+    /* Defect bar */
+    body.light-mode .defect-bar-label {
+        color: #1a1a2e;
+    }
+
+    body.light-mode .defect-bar-value {
+        color: #1a1a2e;
+    }
+
+    body.light-mode .defect-bar-track {
+        background: rgba(0,0,0,0.1);
+    }
+
+    /* Legend assembly achievement */
+    body.light-mode .legend-row .legend-key {
+        color: #1a1a2e;
+    }
+
+    body.light-mode .legend-row .legend-value {
+        color: #1a1a2e;
+    }
+
+    body.light-mode #total-plan-display-cu,
+    body.light-mode #total-plan-display-cs {
+        color: #1a1a2e !important;
+    }
+
+    /* Quality defect percent text */
+    body.light-mode #quality-percent-cu,
+    body.light-mode #quality-percent-cs,
+    body.light-mode #defect-count-cu,
+    body.light-mode #defect-count-cs {
+        color: #1a1a2e;
+    }
+
+    body.light-mode .quality-chart-wrapper span {
+        color: #1a1a2e !important;
+    }
+
+    /* Footer */
+    body.light-mode footer {
+        color: #1a1a2e !important;
+    }
+
+    /* HR pemisah */
+    body.light-mode hr {
+        border-top: 1px solid rgba(0,0,0,0.15) !important;
+    }
+
+    /* Legend peta */
+    body.light-mode .legend-label {
+        color: #1a1a2e;
+    }
+
+    /* Air conditioner label */
+    body.light-mode .map-card > div[style*="color:#fff"] {
+        color: #1a1a2e !important;
+        text-shadow: 0 1px 4px rgba(255,255,255,0.5);
+    }
+
+    /* Loss time numbers */
+    body.light-mode #cu-loss-time,
+    body.light-mode #cu-load-time,
+    body.light-mode #cu-working-time,
+    body.light-mode #cs-loss-time,
+    body.light-mode #cs-load-time,
+    body.light-mode #cs-working-time {
+        color: #1a1a2e;
+    }
+
+    /* Tombol toggle */
+    body.light-mode #theme-toggle {
+        border-color: #1a1a2e !important;
+        color: #1a1a2e !important;
+        background-color: rgba(150, 200, 195, 0.5) !important;
+    }
+
+    /* Speed % */
+    body.light-mode #legend-achievement-cu,
+    body.light-mode #legend-achievement-cs {
+        color: #1a1a2e !important;
+    }
+
+    /* Semua legend-value di achievement */
+    body.light-mode .legend-and-total .legend-row .legend-value,
+    body.light-mode .legend-and-total .legend-row .legend-value span {
+        color: #1a1a2e !important;
+    }
+
+   body.light-mode .legend-row.speed-row .legend-value {
+        color: #1a1a2e !important;
+    }
+
+    body.light-mode .legend-row.total-plan-row .legend-value {
+        color: #1a1a2e !important;
+    } 

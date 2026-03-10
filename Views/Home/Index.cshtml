@@ -15,7 +15,24 @@
         <header class="main-header">
             <img src="~/assets/panasonic_logo.png" alt="Panasonic" class="logo" />
             <img src="~/assets/PROMS_Logo.png" alt="PROMS" class="title-logo" />
-            <div id="current-date" class="date"></div>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <!-- Tombol toggle dark/light -->
+                <button id="theme-toggle" onclick="toggleTheme()" style="
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            padding: 4px 14px;
+            color: #fff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        ">
+                    🌙 Dark
+                </button>
+                <div id="current-date" class="date"></div>
+            </div>
         </header>
         <main class="main-content">
 
@@ -26,10 +43,10 @@
                     <img src="~/assets/denah_pabrik.png" alt="Factory Floor Plan" />
 
                     <!-- Label Air Conditioner -->
-                    <div style="position:absolute;top:16px;left:20px;z-index:10;
-                        font-family:'DIN Pro',Verdana,sans-serif;
-                        font-size:0.95rem;font-weight:600;color:#fff;
-                        text-shadow:0 1px 4px rgba(0,0,0,0.8);">
+                    <div id="map-label" style="position:absolute;top:16px;left:20px;z-index:10;
+    font-family:'DIN Pro',Verdana,sans-serif;
+    font-size:0.95rem;font-weight:600;color:white;
+    text-shadow:0 1px 4px rgba(0,0,0,0.8);">
                         Air Conditioner
                     </div>
 
@@ -641,7 +658,7 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
                 ctx.beginPath();
                 ctx.moveTo(x1, y1);
                 ctx.lineTo(x2, y2);
-                ctx.strokeStyle = '#fff';
+                ctx.strokeStyle = document.body.classList.contains('light-mode') ? '#1a1a2e' : '#fff';
                 ctx.lineWidth = isMainTick ? 2 : 1.5;
                 ctx.stroke();
             }
@@ -664,7 +681,9 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
                 glowGradient.addColorStop(1, 'rgba(100, 150, 255, 0)');
                 ctx.fillStyle = glowGradient;
                 ctx.fillRect(x - 15, y - 15, 30, 30);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                        ctx.fillStyle = document.body.classList.contains('light-mode')
+            ? 'rgba(20, 20, 40, 0.9)'
+            : 'rgba(255, 255, 255, 0.9)';
                 ctx.font = `bold ${9 * scale}px Arial`;
                 ctx.fillText(numbers[i], x, y);
             }
@@ -688,7 +707,8 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.lineTo(needleX, needleY);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.95)';
+                    const isLight = document.body.classList.contains('light-mode');
+        ctx.strokeStyle = isLight ? 'rgba(20, 20, 40, 0.9)' : 'rgba(255, 255, 255, 0.95)';
             ctx.lineWidth = 3;
             ctx.lineCap = 'round';
             ctx.stroke();
@@ -996,6 +1016,20 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
                 }
 
             } catch (error) { console.error("Could not fetch data:", error); }
+        }
+
+                function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('theme-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                btn.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                btn.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'light');
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
