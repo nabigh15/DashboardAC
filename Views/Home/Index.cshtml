@@ -1030,6 +1030,9 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
                 btn.textContent = '☀️ Light';
                 localStorage.setItem('theme', 'light');
             }
+            // Redraw KEDUA chart supaya warna jarum & angka ikut update
+            createOrUpdateChart('chartCU', null, lastDataCU.actual, lastDataCU.plan);
+            createOrUpdateChart('chartCS', null, lastDataCS.actual, lastDataCS.plan);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
