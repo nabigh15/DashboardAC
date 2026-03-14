@@ -23,14 +23,14 @@
     justify-content: space-between;
     align-items: center;
     background-color: #2E3250;
-    padding: 25px 20px;     /*tinggi header*/
+    padding: 25px 20px; /*tinggi header*/
     position: relative;
     border-bottom: 2px solid rgba(255,255,255,0.2);
     box-sizing: border-box;
 }
 
     .main-header .logo { /*logo panasonic*/
-        height: 24px;  /*ukuran*/
+        height: 24px; /*ukuran*/
         width: auto;
         object-fit: contain;
         filter: brightness(0) invert(1);
@@ -113,7 +113,7 @@
         }
 
         /* Achievement & Quality bagi rata sisa tinggi */
-        .right-column > a:nth-child(1) { 
+        .right-column > a:nth-child(1) {
             flex: 0 0 30% !important; /*atur tinggi assembly achievment*/
         }
 
@@ -390,7 +390,7 @@
 .loss-time-container {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     flex: 1 1 0;
     min-height: 0;
     overflow: hidden;
@@ -406,23 +406,25 @@
 
 .loss-line-wrapper {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 10px;
-    padding: 8px 8px;
+    padding: 6px 8px;
     flex: 1 1 0;
     min-height: 0;
     overflow: hidden;
 }
 
-.loss-summary {   /*loss time*/
+.loss-summary { /*loss time*/
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 2px;
     font-size: 0.8rem; /* ukuran font label (Loss Time, Load Time, dst) — kecilkan di sini */
     color: #fff;
     flex-shrink: 0;
     min-width: 155px; /* lebar kotak legend — perkecil untuk menghemat ruang */
     margin-left: auto; /* dorong legend sejauh mungkin ke kanan */
+    overflow: visible;
 }
 
 .loss-summary-row {
@@ -434,11 +436,24 @@
     width: 100%;
 }
 
-    .loss-summary-row span:last-child { /*Legen nya loss time yang jumlah*/
-        margin-left: auto;
-        font-weight: bold;
-        font-size: 0.85rem;
+    .loss-summary-row span {
+        color: #e0e1dd;
     }
+
+        .loss-summary-row span:last-child { /*Legen nya loss time yang jumlah*/
+            margin-left: auto;
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: #ffffff;
+        }
+
+.loss-legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    display: inline-block;
+    flex-shrink: 0;
+}
 
 .timeline-container {
     flex: 1 1 0;
@@ -449,12 +464,14 @@
 }
 
 .timeline-track {
-    width: 100%;
-    height: 55px;
-    background-color: #3D4360;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 7px;
+    background-color: rgba(79, 134, 243, 0.25);
+    border-radius: 4px;
     overflow: hidden;
-    border-bottom: none;
 }
 
 .break-marker {
@@ -472,39 +489,38 @@
     position: absolute;
     left: 0;
     top: 0;
-    border-bottom: 3px solid #d90429;
+    border-bottom: 4px solid #d90429;
     box-sizing: border-box;
-    border-top: 3px solid #4F86F3;
 }
 
 .loss-marker {
     position: absolute;
     height: 100%;
     background-color: #d90429;
-    transition: all 0.5s ease-in-out;
-    z-index: 1;
+    z-index: 3;
     box-sizing: border-box;
-    border-bottom: 3px solid #4F86F3;
-    border-top: none;
+    border-bottom: 4px solid #4F86F3;
 }
 
 .timeline-hours {
     display: flex;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: bold;
     color: #e0e1dd;
+    margin-top: 4px;
+    flex-shrink: 0;
 }
 
     .timeline-hours span {
         flex: 1;
         text-align: center;
-        transform: none;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
 .timeline-track-wrapper {
     position: relative;
     padding-bottom: 7px;
+    min-height: 50px;
 }
 
 .timeline-minutes {
@@ -545,7 +561,7 @@
     max-width: 150px;
     height: auto;
     max-height: 40px;
-    padding: 2px 2px;
+    padding: 1px 4px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -802,8 +818,8 @@
         }
 
         .machine-efficiency-table th:nth-child(2),
-        .machine-efficiency-table td:nth-child(2) { 
-            width: 18% !important;  /*jarak tabble machine name*/
+        .machine-efficiency-table td:nth-child(2) {
+            width: 18% !important; /*jarak tabble machine name*/
             text-align: left !important;
         }
 
@@ -1269,6 +1285,7 @@ a.card-link {
     font-weight: bold;
     color: #fff;
     flex-shrink: 0;
+    align-self: center;
 }
 
 tr.row-green, tr.row-yellow, tr.row-red {
@@ -1630,10 +1647,10 @@ body.light-mode {
         color: #1a1a2e !important;
     }
 
-   body.light-mode .legend-row.speed-row .legend-value {
+    body.light-mode .legend-row.speed-row .legend-value {
         color: #1a1a2e !important;
     }
 
     body.light-mode .legend-row.total-plan-row .legend-value {
         color: #1a1a2e !important;
-    } 
+    }

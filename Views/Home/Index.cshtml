@@ -43,12 +43,12 @@
                     <img src="~/assets/denah_pabrik.png" alt="Factory Floor Plan" />
 
                     <!-- Label Air Conditioner -->
-                    <div id="map-label" style="position:absolute;top:16px;left:20px;z-index:10;
+                    <div style="position:absolute;top:16px;left:20px;z-index:10;
     font-family:'DIN Pro',Verdana,sans-serif;
-    font-size:0.95rem;font-weight:600;color:white;
+    font-size:0.95rem;font-weight:600;color:#fff !important;
     text-shadow:0 1px 4px rgba(0,0,0,0.8);">
-                        Air Conditioner
-                    </div>
+    Air Conditioner
+</div>
 
                     <!-- Legend pojok kanan bawah -->
                     <div class="legend-container main-legend">
@@ -67,12 +67,7 @@
                     </div>
 
                     <svg id="line-overlay">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7"
-                                    refX="0" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="rgba(255, 255, 255, 0.6)" />
-                            </marker>
-                        </defs>
+                        <defs></defs>
                     </svg>
 
                     <div class="info-balloon" id="outdoor-unit-marker">
@@ -193,7 +188,7 @@
 
                             <!-- KOTAK CU -->
                             <div class="achievement-chart-wrapper">
-                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px; width:100%; height:100%;">
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:0px; width:100%; height:100%;">
                                     <div class="spedo-wrapper" style="flex:1; min-width:0; height:100%; display:flex; flex-direction:column; align-items:center;">
                                         <div class="chart-container" style="width:100%; flex:1; min-height:0; max-width:none; margin-right:0; position:relative; overflow:hidden;">
                                             <canvas id="chartCU" style="position:absolute; left:0; top:0; width:100% !important; height:100% !important;"></canvas>
@@ -204,7 +199,7 @@
                                             <div class="chart-text-start"></div>
                                             <div id="chart-end-text-cu" class="chart-text-end" style="opacity: 0;">100</div>
                                         </div>
-                                        <div class="line-badge">CU</div>
+                                        
                                     </div>
                                     <div class="legend-and-total">
                                         <div class="legend-row bordered">
@@ -223,9 +218,11 @@
                                             <span class="legend-value"><span id="legend-achievement-cu">0</span>%</span>
                                         </div>
                                         <div class="legend-row total-plan-row">
-                                            <span class="legend-dot" style="background:#F59E0B; border-color:#F59E0B;"></span>
-                                            <span class="legend-key">Total Plan</span>
-                                            <span class="legend-value"><span id="total-plan-display-cu">2.370</span></span>
+                                            <div class="total-plan-label-row">
+                                                <span class="legend-dot" style="background:#F59E0B; border-color:#F59E0B;"></span>
+                                                <span class="legend-key">Total Plan</span>
+                                            </div>
+                                            <span class="legend-value"><span id="total-plan-display-cu">0</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -233,7 +230,7 @@
 
                             <!-- KOTAK CS -->
                             <div class="achievement-chart-wrapper">
-                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px; width:100%; height:100%;">
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:0px; width:100%; height:100%;">
                                     <div class="spedo-wrapper" style="flex:1; min-width:0; height:100%; display:flex; flex-direction:column; align-items:center;">
                                         <div class="chart-container" style="width:100%; flex:1; min-height:0; max-width:none; margin-right:0; position:relative; overflow:hidden;">
                                             <canvas id="chartCS" style="position:absolute; left:0; top:0; width:100% !important; height:100% !important;"></canvas>
@@ -244,7 +241,7 @@
                                             <div class="chart-text-start"></div>
                                             <div id="chart-end-text-cs" class="chart-text-end" style="opacity: 0;">100</div>
                                         </div>
-                                        <div class="line-badge">CS</div>
+                                        
                                     </div>
                                     <div class="legend-and-total">
                                         <div class="legend-row bordered">
@@ -258,14 +255,16 @@
                                             <span class="legend-value"><span id="legend-actual-cs">0</span></span>
                                         </div>
                                         <div class="legend-row bordered speed-row">
-                                            <span class="legend-dot" id="speed-dot-cu" style="background:#F59E0B; border-color:#F59E0B;"></span>
+                                            <span class="legend-dot" id="speed-dot-cs" style="background:#F59E0B; border-color:#F59E0B;"></span>
                                             <span class="legend-key">Speed</span>
                                             <span class="legend-value"><span id="legend-achievement-cs">0</span>%</span>
                                         </div>
                                         <div class="legend-row total-plan-row">
-                                            <span class="legend-dot" style="background:#F59E0B; border-color:#F59E0B;"></span>
-                                            <span class="legend-key">Total Plan</span>
-                                            <span class="legend-value"><span id="total-plan-display-cs">2.115</span></span>
+                                            <div class="total-plan-label-row">
+                                                <span class="legend-dot" style="background:#F59E0B; border-color:#F59E0B;"></span>
+                                                <span class="legend-key">Total Plan</span>
+                                            </div>
+                                            <span class="legend-value"><span id="total-plan-display-cs">0</span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +284,7 @@
                             <div class="quality-chart-wrapper">
                                 <div style="display:flex; flex-direction:row; align-items:flex-start; gap:8px; margin-bottom:6px;">
                                     <b class="quality-line-badge">CU</b>
-                                   
+
                                 </div>
                                 <div id="defect-bar-cu" class="defect-bar-container"></div>
                                 <span style="font-size:0.75rem; color:#cbd5e1; align-self:center;">
@@ -316,69 +315,77 @@
                             <span>Assembly Loss Time</span>
                         </div>
                         <div class="loss-time-container">
+
                             <!-- CU -->
                             <div class="loss-line-wrapper">
-                                <b class="loss-line-badge">CU</b>
-                                <div class="timeline-container">
-                                    <div class="timeline-track-wrapper">
-                                        <div id="timeline-track-cu" class="timeline-track">
-                                            <div id="timeline-progress-cu" class="timeline-progress"></div>
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px; flex:1 1 0; min-height:0;">
+                                    <b class="loss-line-badge">CU</b>
+                                    <div class="timeline-container">
+                                        <div class="timeline-track-wrapper">
+                                            <div id="timeline-track-cu" class="timeline-track">
+                                                <div id="timeline-progress-cu" class="timeline-progress"></div>
+                                            </div>
+                                            <div class="timeline-minutes" id="timeline-minutes-cu"></div>
                                         </div>
-                                        <div class="timeline-minutes" id="timeline-minutes-cu"></div>
+                                        <div class="timeline-hours"></div>
                                     </div>
-                                    <div class="timeline-hours"></div>
-                                </div>
-                                <div class="loss-summary">
-                                    <div class="loss-summary-row">
-                                        <span class="legend-color-box" style="background-color: #d90429; width:12px; height:12px; display:inline-block;"></span>
-                                        <span>Loss Time</span>
-                                        <span id="cu-loss-time">0</span>
-                                    </div>
-                                    <div class="loss-summary-row">
-                                        <span class="legend-color-box" style="background-color: #4F86F3; width:12px; height:12px; display:inline-block;"></span>
-                                        <span>Load Time</span>
-                                        <span id="cu-load-time">0</span>
-                                    </div>
-                                    <div class="loss-summary-row" style="border-bottom:none;">
-                                        <span class="legend-color-box" style="width:12px; height:12px; display:inline-block; visibility:hidden;"></span>
-                                        <span>Working Time</span>
-                                        <span id="cu-working-time">0</span>
+                                    <!-- LEGEND KANAN -->
+                                    <div class="loss-summary-right">
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="background:#4F86F3;"></span>
+                                            <span class="loss-legend-label">Load Time</span>
+                                            <span id="cu-load-time" class="loss-legend-value">0</span>
+                                        </div>
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="background:#d90429;"></span>
+                                            <span class="loss-legend-label">Loss Time</span>
+                                            <span id="cu-loss-time" class="loss-legend-value">0</span>
+                                        </div>
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="visibility:hidden;"></span>
+                                            <span class="loss-legend-label">Working Time</span>
+                                            <span id="cu-working-time" class="loss-legend-value">0</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.3); margin: 4px 8px;" />
+                            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.3); margin: 0 8px;" />
 
                             <!-- CS -->
                             <div class="loss-line-wrapper">
-                                <b class="loss-line-badge">CS</b>
-                                <div class="timeline-container">
-                                    <div class="timeline-track-wrapper">
-                                        <div id="timeline-track-cs" class="timeline-track">
-                                            <div id="timeline-progress-cs" class="timeline-progress"></div>
+                                <div style="display:flex; flex-direction:row; align-items:center; gap:10px; flex:1 1 0; min-height:0;">
+                                    <b class="loss-line-badge">CS</b>
+                                    <div class="timeline-container">
+                                        <div class="timeline-track-wrapper">
+                                            <div id="timeline-track-cs" class="timeline-track">
+                                                <div id="timeline-progress-cs" class="timeline-progress"></div>
+                                            </div>
+                                            <div class="timeline-minutes" id="timeline-minutes-cs"></div>
                                         </div>
-                                        <div class="timeline-minutes" id="timeline-minutes-cs"></div>
+                                        <div class="timeline-hours"></div>
                                     </div>
-                                    <div class="timeline-hours"></div>
-                                </div>
-                                <div class="loss-summary">
-                                    <div class="loss-summary-row">
-                                        <span class="legend-color-box" style="background-color: #d90429; width:12px; height:12px; display:inline-block;"></span>
-                                        <span>Loss Time</span>
-                                        <span id="cs-loss-time">0</span>
-                                    </div>
-                                    <div class="loss-summary-row">
-                                        <span class="legend-color-box" style="background-color: #4F86F3; width:12px; height:12px; display:inline-block;"></span>
-                                        <span>Load Time</span>
-                                        <span id="cs-load-time">0</span>
-                                    </div>
-                                    <div class="loss-summary-row" style="border-bottom:none;">
-                                        <span class="legend-color-box" style="width:12px; height:12px; display:inline-block; visibility:hidden;"></span>
-                                        <span>Working Time</span>
-                                        <span id="cs-working-time">0</span>
+                                    <!-- LEGEND KANAN -->
+                                    <div class="loss-summary-right">
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="background:#4F86F3;"></span>
+                                            <span class="loss-legend-label">Load Time</span>
+                                            <span id="cs-load-time" class="loss-legend-value">0</span>
+                                        </div>
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="background:#d90429;"></span>
+                                            <span class="loss-legend-label">Loss Time</span>
+                                            <span id="cs-loss-time" class="loss-legend-value">0</span>
+                                        </div>
+                                        <div class="loss-summary-item">
+                                            <span class="loss-legend-dot" style="visibility:hidden;"></span>
+                                            <span class="loss-legend-label">Working Time</span>
+                                            <span id="cs-working-time" class="loss-legend-value">0</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </a>
@@ -446,12 +453,12 @@
                 'machine-400t': { x: 90, y: 62 },
                 'machine-110t-amada': { x: 72, y: 28 },
                 'machine-110t-komatsu': { x: 88, y: 36 },
-                'machine-sf-250': { x: 66, y: 12 },
-                'machine-fix-80': { x: 60, y: 12 },
-                'machine-fix-12': { x: 54, y: 12 },
-                'machine-fix-36': { x: 48, y: 12 },
-                'machine-kyoshin-ori': { x: 48, y: 30 },
-                'machine-kyoshin': { x: 59, y: 30 },
+                'machine-sf-250': { x: 69, y: 12 },
+                'machine-fix-80': { x: 61, y: 12 },
+                'machine-fix-12': { x: 53, y: 12 },
+                'machine-fix-36': { x: 45, y: 12 },
+                'machine-kyoshin-ori': { x: 46, y: 30 },
+                'machine-kyoshin': { x: 62, y: 30 },
                 'machine-li-chin': { x: 54, y: 30 },
                 'machine-14-row': { x: 83, y: 14 },
                 'machine-7-row': { x: 86, y: 26 },
@@ -460,28 +467,28 @@
                 'cond': { x: 76, y: 70 }
             };
 
-                const arrowTargets = {
-            'outdoor-unit-marker':   { x: 23, y: 37 },
-            'indoor-unit-marker':    { x: 11, y: 53 },
-            'machine-300t-new':      { x: 88, y: 73 },
-            'machine-300t':          { x: 86, y: 53 },
-            'machine-200t':          { x: 85, y: 45 },
-            'machine-400t':          { x: 88, y: 64 },
-            'machine-110t-amada':    { x: 79, y: 33 },
-            'machine-110t-komatsu':  { x: 88, y: 36 },
-            'machine-sf-250':        { x: 69, y: 20 },
-            'machine-fix-80':        { x: 63, y: 20 },
-            'machine-fix-12':        { x: 57, y: 20 },
-            'machine-fix-36':        { x: 52, y: 20 },
-            'machine-kyoshin-ori':   { x: 52, y: 36 },
-            'machine-kyoshin':       { x: 63, y: 36 },
-            'machine-li-chin':       { x: 58, y: 36 },
-            'machine-14-row':        { x: 83, y: 20 },
-            'machine-7-row':         { x: 86, y: 26 },
-            'oven':                  { x: 70, y: 47 },
-            'evap':                  { x: 63, y: 67 },
-            'cond':                  { x: 75, y: 72 }
-        };
+            const arrowTargets = {
+                'outdoor-unit-marker':   { x: 23, y: 37 },
+                'indoor-unit-marker':    { x: 11, y: 53 },
+                'machine-300t-new':      { x: 88, y: 73 },
+                'machine-300t':          { x: 86, y: 53 },
+                'machine-200t':          { x: 85, y: 45 },
+                'machine-400t':          { x: 88, y: 64 },
+                'machine-110t-amada':    { x: 79, y: 33 },
+                'machine-110t-komatsu':  { x: 88, y: 36 },
+                'machine-sf-250':        { x: 69, y: 20 },
+                'machine-fix-80':        { x: 63, y: 20 },
+                'machine-fix-12':        { x: 57, y: 20 },
+                'machine-fix-36':        { x: 52, y: 20 },
+                'machine-kyoshin-ori':   { x: 52, y: 36 },
+                'machine-kyoshin':       { x: 63, y: 36 },
+                'machine-li-chin':       { x: 58, y: 36 },
+                'machine-14-row':        { x: 83, y: 20 },
+                'machine-7-row':         { x: 86, y: 26 },
+                'oven':                  { x: 70, y: 47 },
+                'evap':                  { x: 63, y: 67 },
+                'cond':                  { x: 75, y: 72 }
+            };
 
             const img = container.querySelector('img');
             const containerWidth = img ? img.offsetWidth : container.offsetWidth;
@@ -501,14 +508,13 @@
                 const balloon = document.getElementById(balloonId);
                 if (balloon) {
                     const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    // SESUDAH - pakai getBoundingClientRect untuk akurasi
-const containerRect = container.getBoundingClientRect();
-const balloonRect = balloon.getBoundingClientRect();
-const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
-        const startY = balloonRect.top - containerRect.top + balloonRect.height / 2;
-                            const target = arrowTargets[balloonId] || machineCoordinates[balloonId];
-        const endX = (target.x / 100) * containerWidth;
-        const endY = (target.y / 100) * containerHeight;
+                    const containerRect = container.getBoundingClientRect();
+                    const balloonRect = balloon.getBoundingClientRect();
+                    const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
+                    const startY = balloonRect.top - containerRect.top + balloonRect.height / 2;
+                    const target = arrowTargets[balloonId] || machineCoordinates[balloonId];
+                    const endX = (target.x / 100) * containerWidth;
+                    const endY = (target.y / 100) * containerHeight;
                     line.setAttribute('x1', startX);
                     line.setAttribute('y1', startY);
                     line.setAttribute('x2', endX);
@@ -544,184 +550,147 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
             else return '#d90429';
         }
 
-        function createOrUpdateChart(canvasId, chartInstance, actual, dailyPlan) {
-            const maxDaily = (canvasId === 'chartCU') ? 2370 : 2115;
-            const percentage = dailyPlan > 0 ? (actual / dailyPlan) * 100 : 0;
-            const cappedNeedlePercentage = Math.min(percentage, 120);
-            const actualBarPercentage = (actual / maxDaily) * 100;
-            const planBarPercentage = (dailyPlan / maxDaily) * 100;
-            const cappedActualBar = Math.min(actualBarPercentage, 120);
-            const cappedPlanBar = Math.min(planBarPercentage, 120);
+                function createOrUpdateChart(canvasId, chartInstance, actual, displayPlan, maxPlan) {
+                    const isLightMode = document.body.classList.contains('light-mode');
+                    const ref = maxPlan > 0 ? maxPlan : displayPlan;
+                    const pct = displayPlan > 0 ? (actual / displayPlan) * 100 : 0;
+                    const cNeedle = Math.min(pct, 120);
+                    const cActual = ref > 0 ? Math.min((actual / ref) * 100, 120) : 0;
+                    const cPlan = ref > 0 ? Math.min((displayPlan / ref) * 100, 120) : 0;
 
-            if (chartInstance) { chartInstance.destroy(); }
+                    if (chartInstance) chartInstance.destroy();
 
-            const canvas = document.getElementById(canvasId);
-            const ctx = canvas.getContext('2d');
-            const wrapper = canvas.closest('.chart-container');
-            const w = wrapper ? wrapper.offsetWidth : 280;
-            const h = wrapper ? wrapper.offsetHeight : 200;
+                    const canvas = document.getElementById(canvasId);
+                    const wrapper = canvas.closest('.chart-container');
+                    const w = wrapper ? wrapper.offsetWidth : 260;
+                    const h = wrapper ? wrapper.offsetHeight : 260;
 
-            // Melebar ke samping: pakai lebar penuh container
-        canvas.width = 260;
-        canvas.height = 190;
+                    if (w < 10 || h < 10) return null;
 
-        const scale = 1;
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height - 90;
-        const radiusOuter = 72;
-        const radiusMiddle = 57;
-        const radiusInner = 42;
-        const lineWidth = 8;
+                    canvas.width = w; canvas.height = h;
+                    const ctx = canvas.getContext('2d');
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    // ── Gauge mengisi penuh area canvas ──
+                    // Gunakan dimensi terkecil dengan margin tipis (6%) agar arc tidak terpotong
+                    const safe = Math.min(w, h) * 0.94;
+                    const rO = safe * 0.42;    // radius outer
+                    const rM = safe * 0.33;    // radius middle
+                    const rI = safe * 0.24;    // radius inner
+                    const lw = safe * 0.046;   // line width arc
+                    const sc = safe / 190;     // scale umum untuk tick/needle/font
 
-            let backlightColor;
-            let backlightIntensity;
-            if (percentage < 80) {
-                backlightColor = 'rgba(217, 4, 41, ';
-                backlightIntensity = 0.5;
-            } else if (percentage < 85) {
-                backlightColor = 'rgba(255, 193, 7, ';
-                backlightIntensity = 0.4;
-            } else {
-                backlightColor = 'rgba(40, 167, 69, ';
-                backlightIntensity = 0.35;
-            }
+                    // Posisi center: gauge arc 135°–45° membutuhkan lebih banyak ruang di bawah
+                    // centerY di 50% agar gauge benar-benar center dan tidak ada ruang kosong
+                    const cx = w * 0.58;
+                    const cy = h * 0.50;
 
-            const backlightRadius = radiusOuter - 60;
-            const startAngle = Math.PI * 0.75;
-            const endAngle = Math.PI * 2.25;
-            const gradient = ctx.createRadialGradient(centerX, centerY, backlightRadius - 10, centerX, centerY, backlightRadius + 10);
-            gradient.addColorStop(0, backlightColor + '0)');
-            gradient.addColorStop(0.5, backlightColor + backlightIntensity + ')');
-            gradient.addColorStop(1, backlightColor + '0)');
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, backlightRadius, startAngle, endAngle, false);
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = 20;
-            ctx.stroke();
+                    ctx.clearRect(0, 0, w, h);
 
-        drawSolidArc(ctx, centerX, centerY, radiusOuter, 100, '#F59E0B', lineWidth * 1.5);
-        drawSolidArc(ctx, centerX, centerY, radiusMiddle, cappedActualBar, '#22C55E', lineWidth * 1.5);
-        drawSolidArc(ctx, centerX, centerY, radiusInner, cappedPlanBar, '#A855F7', lineWidth * 1.5);
+                    // Backlight
+                    let bc, bi;
+                    if (pct < 80) { bc = 'rgba(217,4,41,'; bi = 0.5; }
+                    else if (pct < 85) { bc = 'rgba(255,193,7,'; bi = 0.4; }
+                    else { bc = 'rgba(40,167,69,'; bi = 0.35; }
+                    const blR = Math.max(rO * 0.28, 10);
+                    const sa = Math.PI * 0.75, ea = Math.PI * 2.25;
+                    const gl = ctx.createRadialGradient(cx, cy, blR - 12, cx, cy, blR + 12);
+                    gl.addColorStop(0, bc + '0)'); gl.addColorStop(0.5, bc + bi + ')'); gl.addColorStop(1, bc + '0)');
+                    ctx.beginPath(); ctx.arc(cx, cy, blR, sa, ea, false); ctx.strokeStyle = gl; ctx.lineWidth = 22 * sc; ctx.stroke();
 
-            drawTickMarks(ctx, centerX, centerY, radiusOuter, scale);
-            drawNumbers(ctx, centerX, centerY, radiusOuter, scale);
-            drawNeedle(ctx, centerX, centerY, radiusOuter * 0.30, cappedNeedlePercentage, scale);
+                    // Arcs
+                    drawSolidArc(ctx, cx, cy, rO, 100, '#F59E0B', lw * 1.5);
+                    drawSolidArc(ctx, cx, cy, rM, cPlan, '#22C55E', lw * 1.5);
+                    drawSolidArc(ctx, cx, cy, rI, cActual, '#A855F7', lw * 1.5);
 
-            // Titik tengah besar
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 10 * scale, 0, 2 * Math.PI);
-            ctx.fillStyle = '#fff';
-            ctx.fill();
-            ctx.strokeStyle = '#363B5E';
-            ctx.lineWidth = 3;
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, 4 * scale, 0, 2 * Math.PI);
-            ctx.fillStyle = '#363B5E';
-            ctx.fill();
+                    // Tick marks
+                    for (let i = 0; i < 11; i++) {
+                        const a = sa + (ea - sa) * (i / 10), maj = i % 2 === 0;
+                        const rIn = rO - 43 * sc, rOut = rO - (maj ? 39 : 41) * sc;
+                        ctx.beginPath(); ctx.moveTo(cx + rIn * Math.cos(a), cy + rIn * Math.sin(a)); ctx.lineTo(cx + rOut * Math.cos(a), cy + rOut * Math.sin(a));
+                        ctx.strokeStyle = isLightMode ? 'rgba(20,20,40,0.9)' : 'rgba(255,255,255,0.9)'; ctx.lineWidth = maj ? 2 * sc : 1.5 * sc; ctx.stroke();
+                    }
 
-            const lineId = canvasId === 'chartCU' ? 'cu' : 'cs';
-            document.getElementById(`legend-actual-${lineId}`).textContent = actual;
-            document.getElementById(`legend-plan-${lineId}`).textContent = dailyPlan;
-            const achievementPct = dailyPlan > 0 ? ((actual / dailyPlan) * 100).toFixed(0) : 0;
-            document.getElementById(`legend-achievement-${lineId}`).textContent = achievementPct;
+                    // Numbers
+                    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                    [0, 20, 40, 60, 80, 100, 120].forEach(n => {
+                        const a = sa + (ea - sa) * (n / 120), tr = rO - 52 * sc;
+                        const x = cx + tr * Math.cos(a), y = cy + tr * Math.sin(a);
+                        const gn = ctx.createRadialGradient(x, y, 0, x, y, 15 * sc);
+                        gn.addColorStop(0, 'rgba(100,150,255,0.4)'); gn.addColorStop(0.5, 'rgba(100,150,255,0.2)'); gn.addColorStop(1, 'rgba(100,150,255,0)');
+                        ctx.fillStyle = gn; ctx.fillRect(x - 15 * sc, y - 15 * sc, 30 * sc, 30 * sc);
+                        ctx.fillStyle = isLightMode ? 'rgba(10,10,30,1)' : 'rgba(255,255,255,1)'; ctx.font = `bold ${Math.max(8, Math.round(9 * sc))}px Arial`; ctx.fillText(n, x, y);
+                    });
 
-            const speedDot = document.getElementById(`speed-dot-${lineId}`);
-            if (speedDot) {
-                const pct = parseFloat(achievementPct);
-                if (pct >= 85) speedDot.style.borderColor = '#22C55E';
-                else if (pct >= 80) speedDot.style.borderColor = '#F59E0B';
-                else speedDot.style.borderColor = '#d90429';
-            }
+                    // Needle
+                    const nl = rO * 0.52, na = sa + (ea - sa) * (Math.min(cNeedle, 120) / 120);
+                    const nx = cx + nl * Math.cos(na), ny = cy + nl * Math.sin(na);
+                    ctx.beginPath(); ctx.moveTo(cx + 2, cy + 2); ctx.lineTo(nx + 2, ny + 2); ctx.strokeStyle = 'rgba(0,0,0,0.4)'; ctx.lineWidth = 6 * sc; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(nx, ny); ctx.strokeStyle = isLightMode ? 'rgba(10,10,30,1)' : 'rgba(255,255,255,1)'; ctx.lineWidth = 3 * sc; ctx.lineCap = 'round'; ctx.stroke();
 
-            document.getElementById(`total-plan-display-${lineId}`).textContent = maxDaily.toLocaleString('id-ID');
-            document.getElementById(`chart-end-text-${lineId}`).textContent = "";
+                    // Center dot
+                    ctx.beginPath(); ctx.arc(cx, cy, 10 * sc, 0, 2 * Math.PI); ctx.fillStyle = isLightMode ? '#0a0a1e' : '#ffffff'; ctx.fill();
+                    ctx.strokeStyle = isLightMode ? '#b2dcd7' : '#363B5E'; ctx.lineWidth = 3 * sc; ctx.stroke();
+                    ctx.beginPath(); ctx.arc(cx, cy, 4 * sc, 0, 2 * Math.PI); ctx.fillStyle = '#363B5E'; ctx.fill();
 
-            return null;
-        }
+                    // Update HTML legend (posisi & ukuran diatur oleh CSS container query)
+                    const lid = canvasId === 'chartCU' ? 'cu' : 'cs';
+                    document.getElementById(`legend-actual-${lid}`).textContent = actual.toLocaleString('id-ID');
+                    document.getElementById(`legend-plan-${lid}`).textContent = displayPlan.toLocaleString('id-ID');
+                    const achPct = displayPlan > 0 ? ((actual / displayPlan) * 100).toFixed(0) : 0;
+                    document.getElementById(`legend-achievement-${lid}`).textContent = achPct;
+                    //document.getElementById(`total-plan-display-${lid}`).textContent = maxDaily.toLocaleString('id-ID');
+                    const sd = document.getElementById(`speed-dot-${lid}`);
+                    if (sd) { const c = parseFloat(achPct) >= 85 ? '#22C55E' : parseFloat(achPct) >= 80 ? '#F59E0B' : '#d90429'; sd.style.background = c; sd.style.borderColor = c; }
+                    // ── Badge label (CU / CS) digambar di canvas ──
+                    // Posisi: di bawah titik tengah gauge, di area "flat" bawah arc
+                    const label = canvasId === 'chartCU' ? 'CU' : 'CS';
+                    const badgeFontSize = Math.max(11, Math.round(sc * 16));  // ukuran font badge
+                    const badgeW = badgeFontSize * 2.8;                    // lebar kotak badge
+                    const badgeH = badgeFontSize * 1.6;                    // tinggi kotak badge
+                    const badgeX = cx - badgeW / 2;
+                    const badgeY = cy + rO * 0.60;                         // posisi vertikal (naikkan = kurangi 0.28)
 
-        function drawTickMarks(ctx, centerX, centerY, radius, scale = 1) {
-            const startAngle = Math.PI * 0.75;
-            const endAngle = Math.PI * 2.25;
-            const totalTicks = 11;
-            for (let i = 0; i < totalTicks; i++) {
-                const angle = startAngle + (endAngle - startAngle) * (i / (totalTicks - 1));
-                const isMainTick = i % 2 === 0;
-                const innerRadius = radius - (43 * scale);
-                const outerRadius = radius - (isMainTick ? 39 * scale : 41 * scale);
-                const x1 = centerX + innerRadius * Math.cos(angle);
-                const y1 = centerY + innerRadius * Math.sin(angle);
-                const x2 = centerX + outerRadius * Math.cos(angle);
-                const y2 = centerY + outerRadius * Math.sin(angle);
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.lineTo(x2, y2);
-                ctx.strokeStyle = document.body.classList.contains('light-mode') ? '#1a1a2e' : '#fff';
-                ctx.lineWidth = isMainTick ? 2 : 1.5;
-                ctx.stroke();
-            }
-        }
+                    // Kotak background badge
+                    ctx.save();
+                    ctx.beginPath();
+                    const r = 5; // border-radius sudut kotak
+                    ctx.moveTo(badgeX + r, badgeY);
+                    ctx.lineTo(badgeX + badgeW - r, badgeY);
+                    ctx.quadraticCurveTo(badgeX + badgeW, badgeY, badgeX + badgeW, badgeY + r);
+                    ctx.lineTo(badgeX + badgeW, badgeY + badgeH - r);
+                    ctx.quadraticCurveTo(badgeX + badgeW, badgeY + badgeH, badgeX + badgeW - r, badgeY + badgeH);
+                    ctx.lineTo(badgeX + r, badgeY + badgeH);
+                    ctx.quadraticCurveTo(badgeX, badgeY + badgeH, badgeX, badgeY + badgeH - r);
+                    ctx.lineTo(badgeX, badgeY + r);
+                    ctx.quadraticCurveTo(badgeX, badgeY, badgeX + r, badgeY);
+                    ctx.closePath();
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0)';
+                    ctx.fill();
+                    ctx.strokeStyle = isLightMode ? 'rgba(10,10,30,0.7)' : 'rgba(255, 255, 255, 0.5)';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
 
-        function drawNumbers(ctx, centerX, centerY, radius, scale = 1) {
-            const startAngle = Math.PI * 0.75;
-            const endAngle = Math.PI * 2.25;
-            const numbers = [0, 20, 40, 60, 80, 100, 120];
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            for (let i = 0; i < numbers.length; i++) {
-                const angle = startAngle + (endAngle - startAngle) * (numbers[i] / 120);
-                const textRadius = radius - (52 * scale);
-                let x = centerX + textRadius * Math.cos(angle);
-                let y = centerY + textRadius * Math.sin(angle);
-                const glowGradient = ctx.createRadialGradient(x, y, 0, x, y, 15);
-                glowGradient.addColorStop(0, 'rgba(100, 150, 255, 0.4)');
-                glowGradient.addColorStop(0.5, 'rgba(100, 150, 255, 0.2)');
-                glowGradient.addColorStop(1, 'rgba(100, 150, 255, 0)');
-                ctx.fillStyle = glowGradient;
-                ctx.fillRect(x - 15, y - 15, 30, 30);
-                        ctx.fillStyle = document.body.classList.contains('light-mode')
-            ? 'rgba(20, 20, 40, 0.9)'
-            : 'rgba(255, 255, 255, 0.9)';
-                ctx.font = `bold ${9 * scale}px Arial`;
-                ctx.fillText(numbers[i], x, y);
-            }
-        }
+                    // Teks label di dalam kotak
+        ctx.fillStyle = isLightMode ? '#0a0a1e' : '#ffffff';
+        ctx.font = `bold ${badgeFontSize}px "DIN Pro", Verdana, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(label, cx, badgeY + badgeH / 2);
+                    ctx.restore();
 
-        function drawNeedle(ctx, centerX, centerY, length, percentage, scale = 1) {
-            const startAngle = Math.PI * 0.75;
-            const endAngle = Math.PI * 2.25;
-            const cappedPercentage = Math.min(percentage, 120);
-            const angle = startAngle + (endAngle - startAngle) * (cappedPercentage / 120);
-            const needleX = centerX + length * Math.cos(angle);
-            const needleY = centerY + length * Math.sin(angle);
-            // Shadow
-            ctx.beginPath();
-            ctx.moveTo(centerX + 2, centerY + 2);
-            ctx.lineTo(needleX + 2, needleY + 2);
-            ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
-            ctx.lineWidth = 6;
-            ctx.stroke();
-            // Needle putih
-            ctx.beginPath();
-            ctx.moveTo(centerX, centerY);
-            ctx.lineTo(needleX, needleY);
-                    const isLight = document.body.classList.contains('light-mode');
-        ctx.strokeStyle = isLight ? 'rgba(20, 20, 40, 0.9)' : 'rgba(255, 255, 255, 0.95)';
-            ctx.lineWidth = 3;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-        }
 
-        function renderDefectBar(containerId, defectsByCategory) {
+                    return null;
+
+                }
+
+                function renderDefectBar(containerId, defectsByCategory) {
             const container = document.getElementById(containerId);
             if (!container) return;
             const sorted = [...defectsByCategory].sort((a, b) => b.count - a.count);
-            const maxVal = Math.max(...sorted.map(d => d.count), 1);
+            const total = sorted.reduce((sum, d) => sum + d.count, 0);  // ← total semua defect
             container.innerHTML = '';
             sorted.forEach(d => {
-                const pct = (d.count / maxVal) * 100;
+                const pct = total > 0 ? (d.count / total) * 100 : 0;  // ← proporsional terhadap total
                 const row = document.createElement('div');
                 row.className = 'defect-bar-row';
                 row.innerHTML = `
@@ -825,103 +794,101 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
         }
 
         function getRowClass(oee, oratio, ability, quality) {
-            const minVal = Math.min(parseFloat(oee), oratio, ability, quality);
+            const minVal = Math.min(parseFloat(oee) || 0, parseFloat(oratio) || 0, parseFloat(ability) || 0, parseFloat(quality) || 0);
             if (minVal < 80) return 'row-red';
             if (minVal < 85) return 'row-yellow';
             return 'row-green';
         }
 
+        // ═══════════════════════════════════════════════════════════════
+        // ✅ UPDATE: Ambil nama mesin LANGSUNG dari DATABASE
+        // ═══════════════════════════════════════════════════════════════
         async function updateMachineEfficiency() {
-            const apiUrl = '/Home/GetMachineEfficiencyData';
-            const machineMapping = {
-                'thtn': '300TN', 'twt': '200T', 'thto': '400T', 'ota': '110T Amada',
-                'otb': '110T Komatsu', 'sftf': 'SF 250', 'fez': 'FIX 80', 'fts': 'FIX 36',
-                'eky': 'Kyoshin 6.35', 'elc': 'Li-chin', 'hpn': '14 Row', 'hpo': '7 Row'
-            };
-            const balloonMapping = {
-                'thtn': 'machine-300t-new', 'twt': 'machine-200t', 'thto': 'machine-400t', 'ota': 'machine-110t-amada',
-                'otb': 'machine-110t-komatsu', 'sftf': 'machine-sf-250', 'fez': 'machine-fix-80', 'fts': 'machine-fix-36',
-                'eky': 'machine-kyoshin', 'elc': 'machine-li-chin', 'hpn': 'machine-14-row', 'hpo': 'machine-7-row'
-            };
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const apiData = await response.json();
-                const dataMap = new Map(apiData.map(item => [item.tagName, item.value]));
+                const today = new Date();
+                const month = today.getMonth() + 1;
+                const year = today.getFullYear();
+
+                // ✓ STEP 1: Ambil list nama mesin DISTINCT dari DB
+                const machineNamesRes = await fetch('/Home/GetMachineNamesFromDB');
+                if (!machineNamesRes.ok) throw new Error(`Failed to fetch machine names: ${machineNamesRes.status}`);
+
+                const machineNamesData = await machineNamesRes.json();
+                const machineNamesFromDB = machineNamesData.data || [];
+
+                console.log('[✓] Machine names dari DB:', machineNamesFromDB);
+
+                // ✓ STEP 2: Ambil data efficiency dari DB
+                const res = await fetch(`/Home/GetMachineEfficiencyFromDB?month=${month}&year=${year}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+                const responseJson = await res.json();
+                const dbData = responseJson.data || responseJson;
+
+                if (!Array.isArray(dbData)) {
+                    console.error('Data bukan array:', dbData);
+                    throw new Error('Invalid data format');
+                }
+
+                console.log('[✓] Efficiency data:', dbData);
+
+                // ✓ STEP 3: Buat Map dari efficiency data
+                const dbMap = new Map();
+                dbData.forEach(d => dbMap.set(d.machineName.toLowerCase().trim(), d));
+
                 const tableBody = document.querySelector('.machine-efficiency-table tbody');
                 tableBody.innerHTML = '';
-                let index = 1;
-                for (const [prefix, machineName] of Object.entries(machineMapping)) {
-                    const oeeValue = dataMap.get(`${prefix}Oee`) || 0;
-                    const operatingRatioValue = dataMap.get(`${prefix}Efficiency`) || 0;
-                    const abilityValue = dataMap.get(`${prefix}Quantity`) || 0;
-                    const qualityValue = dataMap.get(`${prefix}Quality`) || 0;
-                    const oee = (oeeValue / 10).toFixed(0);
-                    const operatingRatioPercent = operatingRatioValue * 0.1;
-                    const abilityPercent = abilityValue * 0.1;
-                    const qualityPercent = qualityValue * 0.1;
-                    const balloonId = balloonMapping[prefix];
-                    const balloonElement = document.getElementById(balloonId);
-                    const isAlert = oee < 80 || operatingRatioPercent < 80 || abilityPercent < 80 || qualityPercent < 80;
-                    if (balloonElement) {
-                        const detailsContainer = balloonElement.querySelector('.balloon-details');
-                        if (isAlert) {
-                            balloonElement.classList.add('alert-balloon');
-                            let reasons = [];
-                            if (oee < 80) reasons.push(`OEE: <b>${oee}%</b>`);
-                            if (operatingRatioPercent < 80) reasons.push(`OR: <b>${operatingRatioPercent.toFixed(0)}%</b>`);
-                            if (abilityPercent < 80) reasons.push(`Ability: <b>${abilityPercent.toFixed(0)}%</b>`);
-                            if (qualityPercent < 80) reasons.push(`Quality: <b>${qualityPercent.toFixed(0)}%</b>`);
-                            if (detailsContainer) detailsContainer.innerHTML = `${reasons.join('<br>')}`;
-                            alertDetails.set(balloonId, { type: 'machine', targetId: `row-${prefix}` });
-                        } else {
-                            balloonElement.classList.remove('alert-balloon');
-                            balloonElement.classList.remove('expanded');
-                            if (detailsContainer) detailsContainer.innerHTML = '';
-                            alertDetails.delete(balloonId);
-                        }
-                    }
+
+                // ✓ STEP 4: Render SEMUA machine names dari database
+                machineNamesFromDB.forEach((machineName, index) => {
+                    const data = dbMap.get(machineName.toLowerCase().trim());
+
+                   const oee = data?.oEE != null ? parseFloat(data.oEE).toFixed(1) + '%' : '-';
+const or = data?.operatingRatio != null ? parseFloat(data.operatingRatio).toFixed(1) + '%' : '-';
+const abil = data?.ability != null ? parseFloat(data.ability).toFixed(1) + '%' : '-';
+const qual = data?.quality != null ? parseFloat(data.quality).toFixed(1) + '%' : '-';
+
                     const row = document.createElement('tr');
-                    row.id = `row-${prefix}`;
-                    row.className = getRowClass(oee, operatingRatioPercent, abilityPercent, qualityPercent);
+                    row.id = `row-${index}`;
+                    row.className = getRowClass(oee, or, abil, qual);
                     row.innerHTML = `
-                        <td>${index}</td>
+                        <td>${index + 1}</td>
                         <td><span class="status-dot"></span>${machineName}</td>
                         <td>${oee}</td>
-                        <td>${operatingRatioPercent.toFixed(0)}</td>
-                        <td>${abilityPercent.toFixed(0)}</td>
-                        <td>${qualityPercent.toFixed(0)}</td>
+                        <td>${or}</td>
+                        <td>${abil}</td>
+                        <td>${qual}</td>
                     `;
                     tableBody.appendChild(row);
-                    index++;
-                }
+                });
+
+                console.log('[✓] Machine Efficiency Update Complete - ' + machineNamesFromDB.length + ' mesin');
+
             } catch (error) {
-                console.error("Could not fetch machine efficiency data:", error);
+                console.error("[❌ Error in updateMachineEfficiency]", error);
                 const tableBody = document.querySelector('.machine-efficiency-table tbody');
-                const machines = ['300TN', '200T', '400T', '110T Amada', '110T Komatsu', 'SF 250', 'FIX 80', 'FIX 36', 'Kyoshin 6.35', 'Li-chin', '14 Row', '7 Row'];
-                tableBody.innerHTML = machines.map((name, i) => `
-                    <tr>
-                        <td>${i + 1}</td>
-                        <td>${name}</td>
-                        <td>-</td><td>-</td><td>-</td><td>-</td>
-                    </tr>
-                `).join('');
+                tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:20px;">Error loading data</td></tr>';
             }
         }
+        // ═══════════════════════════════════════════════════════════════
 
-        async function fetchData() {
-            try {
-                const response = await fetch('/Home/GetDashboardData');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
+                async function fetchData() {
+                    try {
+                        const response = await fetch('/Home/GetDashboardData');
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        const data = await response.json();
 
-                const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
-                chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU);
-                lastDataCU = { actual: data.lineCU.totalActual, plan: displayPlanCU };
+                        const dailyPlanCU = data.lineCU.dailyPlan;
+                        const displayPlanCU = Math.min(data.lineCU.totalPlan, data.lineCU.dailyPlan);
+                        chartCU = createOrUpdateChart('chartCU', chartCU, data.lineCU.totalActual, displayPlanCU, dailyPlanCU);
+                        lastDataCU = { actual: data.lineCU.totalActual, plan: displayPlanCU, maxPlan: dailyPlanCU };
+                        document.getElementById('total-plan-display-cu').textContent = data.lineCU.dailyPlan.toLocaleString('id-ID');
 
-                const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
-                chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, displayPlanCS);
-                lastDataCS = { actual: data.lineCS.totalActual, plan: displayPlanCS };
+                        const dailyPlanCS = data.lineCS.dailyPlan;
+                        const displayPlanCS = Math.min(data.lineCS.totalPlan, data.lineCS.dailyPlan);
+                        chartCS = createOrUpdateChart('chartCS', chartCS, data.lineCS.totalActual, displayPlanCS, dailyPlanCS);
+                        lastDataCS = { actual: data.lineCS.totalActual, plan: displayPlanCS, maxPlan: dailyPlanCS };
+                        document.getElementById('total-plan-display-cs').textContent = data.lineCS.dailyPlan.toLocaleString('id-ID');
 
                 const cuDefectsByCategory = data.lineCU.defectsByCategory || [
                     {category: 'Preparing', count: 5}, {category: 'Gas Leak', count: 3},
@@ -1018,7 +985,7 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
             } catch (error) { console.error("Could not fetch data:", error); }
         }
 
-                function toggleTheme() {
+        function toggleTheme() {
             const body = document.body;
             const btn = document.getElementById('theme-toggle');
             if (body.classList.contains('light-mode')) {
@@ -1030,31 +997,33 @@ const startX = balloonRect.left - containerRect.left + balloonRect.width / 2;
                 btn.textContent = '☀️ Light';
                 localStorage.setItem('theme', 'light');
             }
-            // Redraw KEDUA chart supaya warna jarum & angka ikut update
-            createOrUpdateChart('chartCU', null, lastDataCU.actual, lastDataCU.plan);
-            createOrUpdateChart('chartCS', null, lastDataCS.actual, lastDataCS.plan);
+            createOrUpdateChart('chartCU', null, lastDataCU.actual, lastDataCU.plan, lastDataCU.maxPlan);
+            createOrUpdateChart('chartCS', null, lastDataCS.actual, lastDataCS.plan, lastDataCS.maxPlan);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setDate();
-            setInterval(setDate, 1000);
-            drawConnectorLines();
-            fetchData();
-            updateMachineEfficiency();
-            setInterval(() => {
-                fetchData();
-                updateMachineEfficiency();
-            }, 5000);
+                document.addEventListener('DOMContentLoaded', () => {
+                    setDate();
+                    setInterval(setDate, 1000);
+                    drawConnectorLines();
+                    fetchData();
+                    updateMachineEfficiency();
+                    setInterval(() => {
+                        fetchData();
+                        updateMachineEfficiency();
+                    }, 5000);
 
-            window.addEventListener('resize', drawConnectorLines);
+                    window.addEventListener('resize', drawConnectorLines);
 
-            const achievementCard = document.getElementById('assembly-achievement-card');
-            if (achievementCard) {
-                new ResizeObserver(() => {
-                    createOrUpdateChart('chartCU', null, lastDataCU.actual, lastDataCU.plan);
-                    createOrUpdateChart('chartCS', null, lastDataCS.actual, lastDataCS.plan);
-                }).observe(achievementCard);
-            }
+                    const wrapperCU = document.getElementById('chartCU')?.closest('.chart-container');
+                    const wrapperCS = document.getElementById('chartCS')?.closest('.chart-container');
+
+                    const chartResizeObserver = new ResizeObserver(() => {
+                        createOrUpdateChart('chartCU', null, lastDataCU.actual, lastDataCU.plan, lastDataCU.maxPlan);
+                        createOrUpdateChart('chartCS', null, lastDataCS.actual, lastDataCS.plan, lastDataCS.maxPlan);
+                    });
+
+                    if (wrapperCU) chartResizeObserver.observe(wrapperCU);
+                    if (wrapperCS) chartResizeObserver.observe(wrapperCS);
 
             const mapCard = document.querySelector('.map-card');
             if (mapCard) {
